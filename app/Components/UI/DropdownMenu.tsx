@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence, Variants } from "motion/react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Link from "next/link";
 
 interface DropdownItem {
