@@ -1,26 +1,134 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+
+
+html[dir="ltr"] body {
+  font-family: 'Plus Jakarta Sans';
+}
+
+/* RTL Arabic font */
+html[dir="rtl"] body {
+  font-family: 'Tajawal';
+}
+
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Hide scrollbar for Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+* {
+  scrollbar-width: none;
+}
+
+
+
+
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ================== DESKTOP SIZES ================== */
+  --h1-lg: 6vw;
+  --h2-lg: 4.8vw;
+  --h3-lg: 3.6vw;
+  --h4-lg: 5vw;
+  --h5-lg: 2.2vw;
+  --h6-lg: 1.8vw;
+
+  --b1-lg: 1.5vw;
+  --b2-lg: 1.25vw;
+  --b3-lg: 1vw;
+  --b4-lg: 0.8vw;
+
+  --t1-lg: 0.72vw;
+  --t2-lg: 0.62vw;
+
+  /* ================== MOBILE SIZES ================== */
+  --h1-sm: 13vw;
+  --h2-sm: 10vw;
+  --h3-sm: 8vw;
+  --h4-sm: 6.6vw;
+  --h5-sm: 5.6vw;
+  --h6-sm: 4.6vw;
+
+  --b1-sm: 4vw;
+  --b2-sm: 3.4vw;
+  --b3-sm: 3vw;
+  --b4-sm: 2.6vw;
+
+  --t1-sm: 2.2vw;
+  --t2-sm: 2vw;
+
+   /* ================== Color ================== */
+   --brand-0: #F9F5FF;
+   --brand-100: #CFA9FE;
+   --brand-200: #AC6CFB;
+   --brand-300: #9342F7;
+   --brand-400: #8226F1;
+   --brand-500: #7415E9;
+   --brand-600: #6A0ADF;
+   --brand-700: #6004D2;
+   --brand-800: #5801C2;
+   --brand-900: #5000B3;
+
+   --gray-0: #81838F;
+
+   --text: #10021A;
+
+   --white: #FFFFFF;
+   --black: #000000;
+
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ================= DESKTOP CLASSES ================= */
+
+.h1 { font-size: var(--h1-lg); }
+.h2 { font-size: var(--h2-lg); }
+.h3 { font-size: var(--h3-lg); }
+.h4 { font-size: var(--h4-lg); }
+.h5 { font-size: var(--h5-lg); }
+.h6 { font-size: var(--h6-lg); }
+
+.b1 { font-size: var(--b1-lg); }
+.b2 { font-size: var(--b2-lg); }
+.b3 { font-size: var(--b3-lg); }
+.b4 { font-size: var(--b4-lg); }
+
+.t1 { font-size: var(--t1-lg); }
+.t2 { font-size: var(--t2-lg); }
+
+/* ================= MOBILE CLASSES ================= */
+
+@media (max-width: 768px) {
+  .h1 { font-size: var(--h1-sm); }
+  .h2 { font-size: var(--h2-sm); }
+  .h3 { font-size: var(--h3-sm); }
+  .h4 { font-size: var(--h4-sm); }
+  .h5 { font-size: var(--h5-sm); }
+  .h6 { font-size: var(--h6-sm); }
+
+  .b1 { font-size: var(--b1-sm); }
+  .b2 { font-size: var(--b2-sm); }
+  .b3 { font-size: var(--b3-sm); }
+  .b4 { font-size: var(--b4-sm); }
+
+  .t1 { font-size: var(--t1-sm); }
+  .t2 { font-size: var(--t2-sm); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+.grid-container{
+  @apply grid grid-cols-12 gap-[4vw] px-[3vw];
 }
