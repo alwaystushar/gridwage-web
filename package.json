@@ -11,7 +11,12 @@
   "dependencies": {
     "next": "16.0.10",
     "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react-dom": "19.2.1",
+    "gsap": "^3.13.0",
+    "framer-motion": "^11.13.5",
+    "split-type": "^0.3.4",
+    "react-apexcharts": "^1.4.1",
+    "apexcharts": "^3.54.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
