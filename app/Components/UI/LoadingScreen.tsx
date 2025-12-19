@@ -93,20 +93,20 @@ export default function LoadingScreen() {
             <div className="flex items-end" style={{ gap: '1vw' }}>
               {/* Number Counter */}
               <h1 
-                className="font-bold text-[var(--brand-600)]"
+                className="font-bold text-(--brand-600)"
                 style={{ fontSize: '12vw', lineHeight: '1' }}
               >
                 {count}
               </h1>
               <span 
-                className="h3 font-bold text-[var(--brand-400)] pb-[2vw]"
+                className="h3 font-bold text-(--brand-400) pb-[2vw]"
               >
                 %
               </span>
             </div>
 
             {/* Loading Text */}
-            <p className="b2 text-[var(--gray-0)] mt-[1vw]">
+            <p className="b2 text-(--gray-0) mt-[1vw]">
               Loading GridWage...
             </p>
           </motion.div>

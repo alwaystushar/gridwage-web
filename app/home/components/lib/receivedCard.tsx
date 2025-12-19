@@ -136,12 +136,12 @@ export default function ReceivedCard() {
   return (
     <div
       ref={cardRef}
-      className="bg-[var(--white)] rounded-[4vw] md:rounded-[1.44vw] p-[6vw] md:p-[1.2vw] opacity-0 w-[72vw] md:w-[20.2vw] relative overflow-hidden"
+      className="bg-(--white) rounded-[4vw] md:rounded-[1.44vw] p-[6vw] md:p-[1.2vw] opacity-0 w-[72vw] md:w-[20.2vw] relative overflow-hidden"
       style={{ boxShadow: "0 0.4vw 2.6vw rgba(0, 0, 0, 0.02)" }}
     >
       {/* Card Header: Title and Menu Icon */}
       <div className="flex items-center justify-between mb-[5vw] md:mb-[1vw]">
-        <h3 className="text-[4.8vw] md:text-[1.12vw] font-semibold text-[var(--text)]">
+        <h3 className="text-[4.8vw] md:text-[1.12vw] font-semibold text-(--text)">
           Received
         </h3>
         {/* Menu icon */}
@@ -158,7 +158,7 @@ export default function ReceivedCard() {
       {/* Spark 1 - Top Right (Medium) */}
       <div
         ref={spark1Ref}
-        className="absolute top-[12vw] md:top-[3vw] right-[6vw] md:right-[1.8vw] w-[8vw] h-[8vw] md:w-[2vw] md:h-[2vw] opacity-0"
+        className="absolute animate-ping top-[12vw] md:top-[3vw] right-[6vw] md:right-[1.8vw] w-[8vw] h-[8vw] md:w-[2vw] md:h-[2vw] opacity-0"
       >
         <img 
           src="/heroSection/spark.svg" 
@@ -170,7 +170,7 @@ export default function ReceivedCard() {
       {/* Spark 2 - Middle Right (Large) */}
       <div
         ref={spark2Ref}
-        className="absolute top-[28vw] md:top-[8vw] right-[8vw] md:right-[2.2vw] w-[10vw] h-[10vw] md:w-[2.6vw] md:h-[2.6vw] opacity-0"
+        className="absolute top-[28vw] animate-ping md:top-[8vw] right-[8vw] md:right-[2.2vw] w-[10vw] h-[10vw] md:w-[2.6vw] md:h-[2.6vw] opacity-0"
       >
         <img 
           src="/heroSection/spark.svg" 
@@ -182,7 +182,7 @@ export default function ReceivedCard() {
       {/* Spark 3 - Bottom Left (Small) */}
       <div
         ref={spark3Ref}
-        className="absolute bottom-[12vw] md:bottom-[3vw] left-[6vw] md:left-[1.8vw] w-[6vw] h-[6vw] md:w-[1.6vw] md:h-[1.6vw] opacity-0"
+        className="absolute bottom-[12vw] animate-ping md:bottom-[3vw] left-[6vw] md:left-[1.8vw] w-[6vw] h-[6vw] md:w-[1.6vw] md:h-[1.6vw] opacity-0"
       >
         <img 
           src="/heroSection/spark.svg" 
@@ -208,26 +208,26 @@ export default function ReceivedCard() {
         </div>
 
         {/* User name */}
-        <h4 className="text-[4vw] md:text-[1vw] font-semibold text-[var(--text)] mb-[1.5vw] md:mb-[0.4vw]">
+        <h4 className="text-[4vw] md:text-[1vw] font-semibold text-(--text) mb-[1.5vw] md:mb-[0.4vw]">
           Ilya S.
         </h4>
 
         {/* "Sent you" text */}
-        <p className="text-[3.5vw] md:text-[0.85vw] text-[var(--gray-0)] mb-[2vw] md:mb-[0.5vw]">
+        <p className="text-[3.5vw] md:text-[0.85vw] text-(--gray-0) mb-[2vw] md:mb-[0.5vw]">
           Sent you
         </p>
 
         {/* Amount - Animated Counter */}
         <h2 
           ref={amountRef}
-          className="text-[8vw] md:text-[2vw] font-semibold text-[var(--text)]"
+          className="text-[8vw] md:text-[2vw] font-semibold text-(--text)"
         >
           $0
         </h2>
       </div>
 
       {/* Action Buttons with Labels */}
-      <div className="flex items-center justify-center gap-[6vw] md:gap-[2vw] mb-[3vw] md:mb-[0.8vw]">
+      <div className="flex items-center justify-center gap-[6vw] md:gap-[2vw] mb-[3vw] md:mb-[0.2vw]">
         {/* Send Button */}
         <div className="flex flex-col items-center gap-[2vw] md:gap-[0.6vw]">
           <button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white rounded-full w-[14vw] h-[14vw] md:w-[3.2vw] md:h-[3.2vw] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md hover:shadow-lg">
@@ -237,7 +237,7 @@ export default function ReceivedCard() {
               alt="Send" 
             />
           </button>
-          <p className="text-[3.5vw] md:text-[0.85vw] text-[var(--gray-0)]">Send</p>
+          <p className="text-[3.5vw] md:text-[0.85vw] text-(--gray-0)">Send</p>
         </div>
 
         {/* Balance Button */}
@@ -249,7 +249,7 @@ export default function ReceivedCard() {
               alt="Balance" 
             />
           </button>
-          <p className="text-[3.5vw] md:text-[0.85vw] text-[var(--gray-0)]">Balance</p>
+          <p className="text-[3.5vw] md:text-[0.85vw] text-(--gray-0)">Balance</p>
         </div>
 
         {/* Share Button */}
@@ -261,7 +261,7 @@ export default function ReceivedCard() {
               alt="Share" 
             />
           </button>
-          <p className="text-[3.5vw] md:text-[0.85vw] text-[var(--gray-0)]">Share</p>
+          <p className="text-[3.5vw] md:text-[0.85vw] text-(--gray-0)">Share</p>
         </div>
       </div>
     </div>

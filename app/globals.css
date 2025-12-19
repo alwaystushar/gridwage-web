@@ -38,10 +38,10 @@ html[dir="ltr"] {
 
 :root {
   /* ================== DESKTOP SIZES ================== */
-  --h1-lg: 6vw;
+  --h1-lg: 5vw;
   --h2-lg: 4.8vw;
-  --h3-lg: 3.6vw;
-  --h4-lg: 5vw;
+  --h3-lg: 4.4vw;
+  --h4-lg: 4vw;
   --h5-lg: 2.2vw;
   --h6-lg: 1.8vw;
 
@@ -129,6 +129,48 @@ html[dir="ltr"] {
 
 
 
-.grid-container{
-  @apply grid grid-cols-12 gap-[4vw] px-[3vw];
+/* ================= LAYOUT CLASSES ================= */
+.grid-container {
+  @apply grid grid-cols-12 gap-[4vw] px-[6vw];
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    @apply gap-[6vw] px-[8vw];
+  }
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Text Reveal Line Mask */
+.line-mask {
+  display: inline-block;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base body styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--white);
+  color: var(--text);
+  overflow-x: hidden;
 }

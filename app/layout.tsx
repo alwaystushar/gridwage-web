@@ -34,9 +34,6 @@ export default function RootLayout({
     <html lang="en" dir="ltr">
       <body
         className={`${plusJakarta.variable} ${tajawal.variable} antialiased`}
-        style={{
-          fontFamily: 'var(--font-plus-jakarta), Plus Jakarta Sans, sans-serif'
-        }}
       >
         <LoadingProvider>
           <LoadingScreen />

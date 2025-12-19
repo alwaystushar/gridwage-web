@@ -125,7 +125,7 @@ function ProgressItem({ icon, label, percentage, color, delay }: ProgressItemPro
         {/* Label and progress bar container */}
         <div className="flex-1">
           {/* Category label */}
-          <span className="text-[3.2vw] md:text-[0.8vw] text-[var(--text)] font-medium block mb-[0.8vw] md:mb-[0.24vw]">
+          <span className="text-[3.2vw] md:text-[0.8vw] text-(--text) font-medium block mb-[0.8vw] md:mb-[0.24vw]">
             {label}
           </span>
           
@@ -149,7 +149,7 @@ function ProgressItem({ icon, label, percentage, color, delay }: ProgressItemPro
       {/* Number changes color and scales up on hover */}
       <span
         ref={numberRef}
-        className="text-[3.2vw] md:text-[0.8vw] font-semibold text-[var(--text)] ml-[3.2vw] md:ml-[0.8vw] transition-all duration-300"
+        className="text-[3.2vw] md:text-[0.8vw] font-semibold text-(--text) ml-[3.2vw] md:ml-[0.8vw] transition-all duration-300"
         style={{
           color: isHovered ? color : "var(--text)",            // Change to bar color on hover
           transform: isHovered ? "scale(1.1)" : "scale(1)",    // Scale up by 10% on hover
@@ -254,7 +254,7 @@ export default function AnalysisCard() {
     plotOptions: {
       pie: {
         donut: {
-          size: "90%",                                // Size of donut hole (larger = smaller hole)
+          size: "75%",                                // Size of donut hole (larger = smaller hole)
           labels: {
             show: true,                               // Show center labels
             name: {
@@ -332,12 +332,12 @@ export default function AnalysisCard() {
   return (
     <div
       ref={cardRef}
-      className="bg-[var(--white)] rounded-[3.2vw] md:rounded-[1.44vw] p-[4.8vw] md:p-[1.2vw] opacity-0 w-[72vw] md:w-[24vw]"
+      className="bg-(--white) rounded-[3.2vw] md:rounded-[1.44vw] p-[4.8vw] md:p-[1.2vw] opacity-0 w-[72vw] md:w-[22vw]"
       style={{ boxShadow: "0 0.4vw 1.6vw rgba(0, 0, 0, 0.06)" }}
     >
       {/* Card Header: Title and Icon */}
       <div className="flex items-center justify-between mb-[4vw] md:mb-[1.2vw] pb-[1vw] border-b border-black/5">
-        <h3 className="text-[4.8vw] md:text-[1.12vw] font-semibold text-[var(--text)]">
+        <h3 className="text-[4.8vw] md:text-[1.12vw] font-semibold text-(--text)">
           Analysis
         </h3>
         {/* Chart icon in header */}
@@ -371,8 +371,8 @@ export default function AnalysisCard() {
         
         {/* Current month and year display */}
         <div className="text-center min-w-[20vw] md:min-w-[12vw]">
-          <h2 className="text-[5.6vw] md:text-[1.6vw] font-semibold text-[var(--text)]">August</h2>
-          <p className="text-[3.2vw] md:text-[0.8vw] text-[var(--gray-0)]">2026</p>
+          <h2 className="text-[5.6vw] md:text-[1.6vw] font-semibold text-(--text)">August</h2>
+          <p className="text-[3.2vw] md:text-[0.8vw] text-(--gray-0)">2026</p>
         </div>
         
         {/* Next month button */}
@@ -408,10 +408,10 @@ export default function AnalysisCard() {
       <div className="pt-[3.2vw] md:pt-[0.96vw] border-t-[0.32vw] md:border-t-[0.08vw] border-gray-200">
         {/* Section header with title and menu icon */}
         <div className="flex items-center justify-between mb-[3.2vw] md:mb-[0.8vw]">
-          <p className="text-[3.2vw] md:text-[0.8vw] text-[var(--gray-0)]">
+          <p className="text-[3.2vw] md:text-[0.8vw] text-(--gray-0)">
             Compared to
             <br />
-            <span className="font-semibold text-[var(--text)]">Last month spending</span>
+            <span className="font-semibold text-(--text)">Last month spending</span>
           </p>
           {/* Menu button (hamburger icon) */}
           <button className="hover:bg-gray-100 rounded transition-colors p-[1.2vw] md:p-[0.24vw]">

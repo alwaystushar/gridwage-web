@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
@@ -16,120 +16,178 @@ interface TextRevealProps {
   triggerOnLoad?: boolean;
   stagger?: number;
   lineHeight?: string;
+  scrollStart?: string;
 }
 
-export default function TextReveal({ 
-  children, 
-  className = "", 
+export default function TextReveal({
+  children,
+  className = "",
   delay = 0,
   duration = 1.2,
   triggerOnLoad = false,
   stagger = 0.1,
-  lineHeight = "1.2"
+  lineHeight = "1.2",
+  scrollStart = "top 85%"
 }: TextRevealProps) {
   const textRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const { isLoading } = useLoading();
   const splitRef = useRef<SplitType | null>(null);
-  const animationRef = useRef<gsap.core.Timeline | gsap.core.Tween | null>(null);
+  const animationRef = useRef<gsap.core.Tween | null>(null);
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
+  const [isReady, setIsReady] = useState(false);
+  const hasAnimated = useRef(false); // Track if animation has played
+
+  // Wait for loading to complete before marking as ready
+  useEffect(() => {
+    if (!isLoading) {
+      // Delay to ensure DOM is fully ready and ScrollTrigger can calculate positions
+      const readyTimer = setTimeout(() => {
+        setIsReady(true);
+        // Refresh ScrollTrigger after loading completes
+        ScrollTrigger.refresh();
+      }, 100);
+
+      return () => clearTimeout(readyTimer);
+    }
+  }, [isLoading]);
 
   useEffect(() => {
-    // Don't run animations while loading
-    if (isLoading || !textRef.current || !containerRef.current) return;
+    // Don't run if still loading or not ready
+    if (isLoading || !isReady || !textRef.current || !containerRef.current) return;
 
-    // Keep container hidden during setup
-    containerRef.current.style.opacity = '0';
+    if (containerRef.current) {
+      containerRef.current.style.opacity = '0';
+    }
 
-    // Cleanup previous split if exists
     if (splitRef.current) {
       splitRef.current.revert();
+      splitRef.current = null;
     }
 
-    // Kill previous animation if exists
     if (animationRef.current) {
       animationRef.current.kill();
+      animationRef.current = null;
     }
 
-    // Small delay to ensure DOM is ready
-    requestAnimationFrame(() => {
+    if (scrollTriggerRef.current) {
+      scrollTriggerRef.current.kill();
+      scrollTriggerRef.current = null;
+    }
+
+    const timeoutId = requestAnimationFrame(() => {
       if (!textRef.current || !containerRef.current) return;
 
-      // Wrap spans to prevent splitting
-      const spans = textRef.current.querySelectorAll('span');
-      spans.forEach(span => {
-        span.style.display = 'inline-block';
-        span.style.whiteSpace = 'nowrap';
-      });
+      try {
+        // Handle spans
+        const spans = textRef.current.querySelectorAll('span');
+        spans.forEach((span) => {
+          const spanElement = span as HTMLElement;
+          spanElement.style.display = 'inline-block';
+          spanElement.style.whiteSpace = 'nowrap';
+        });
 
-      // Split text into lines
-      splitRef.current = new SplitType(textRef.current, {
-        types: "lines",
-        lineClass: "line-mask"
-      });
+        // Split text into lines
+        const split = new SplitType(textRef.current, {
+          types: "lines",
+          lineClass: "line-mask"
+        });
+        splitRef.current = split;
 
-      // Wrap lines in overflow containers
-      splitRef.current.lines?.forEach((line) => {
-        const wrapper = document.createElement("div");
-        wrapper.style.overflow = "hidden";
-        wrapper.style.lineHeight = lineHeight;
-        line.parentNode?.insertBefore(wrapper, line);
-        wrapper.appendChild(line);
-      });
+        // Wrap lines in overflow containers
+        if (split.lines) {
+          split.lines.forEach((line: Element) => {
+            const wrapper = document.createElement("div");
+            wrapper.style.overflow = "hidden";
+            wrapper.style.lineHeight = lineHeight;
+            const parent = line.parentNode;
+            if (parent) {
+              parent.insertBefore(wrapper, line);
+              wrapper.appendChild(line);
+            }
+          });
 
-      // Set initial position
-      gsap.set(splitRef.current.lines, { y: "100%" });
-      
-      // Show container now that split is ready
-      if (containerRef.current) {
-        containerRef.current.style.opacity = '1';
-      }
+          // Set initial position
+          gsap.set(split.lines, { y: "100%" });
+        }
 
-      if (triggerOnLoad) {
-        // Trigger immediately on load
-        animationRef.current = gsap.to(
-          splitRef.current.lines,
-          {
-            y: "0%",
-            duration: duration,
-            ease: "power3.out",
-            delay: delay,
-            stagger: stagger,
+        // Show container now that split is ready
+        if (containerRef.current) {
+          containerRef.current.style.opacity = '1';
+        }
+
+        // Small delay before animating to ensure everything is painted
+        setTimeout(() => {
+          if (split.lines && !hasAnimated.current) {
+            if (triggerOnLoad) {
+              animationRef.current = gsap.to(split.lines, {
+                y: "0%",
+                duration: duration,
+                ease: "power3.out",
+                delay: delay,
+                stagger: stagger,
+                onComplete: () => {
+                  hasAnimated.current = true;
+                }
+              });
+            } else {
+              animationRef.current = gsap.to(split.lines, {
+                y: "0%",
+                duration: duration,
+                ease: "power3.out",
+                stagger: stagger,
+                scrollTrigger: {
+                  trigger: textRef.current,
+                  start: scrollStart,
+                  once: true, // ← PLAYS ONLY ONCE
+                  onEnter: () => {
+                    hasAnimated.current = true;
+                  }
+                },
+              });
+              
+              // Store ScrollTrigger reference
+              if (animationRef.current.scrollTrigger) {
+                scrollTriggerRef.current = animationRef.current.scrollTrigger as ScrollTrigger;
+              }
+            }
           }
-        );
-      } else {
-        // Trigger on scroll
-        animationRef.current = gsap.to(
-          splitRef.current.lines,
-          {
-            y: "0%",
-            duration: duration,
-            ease: "power3.out",
-            stagger: stagger,
-            scrollTrigger: {
-              trigger: textRef.current,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
+        }, 50);
+      } catch (error) {
+        console.error("TextReveal animation error:", error);
+        // Fallback: just show the text
+        if (containerRef.current) {
+          containerRef.current.style.opacity = '1';
+        }
       }
     });
 
     return () => {
-      // Cleanup on unmount
+      cancelAnimationFrame(timeoutId);
+      
       if (animationRef.current) {
         animationRef.current.kill();
+        animationRef.current = null;
       }
+
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+        scrollTriggerRef.current = null;
+      }
+
       if (splitRef.current) {
         splitRef.current.revert();
+        splitRef.current = null;
       }
-      ScrollTrigger.getAll().forEach(trigger => {
+
+      // Clean up all ScrollTriggers associated with this element
+      ScrollTrigger.getAll().forEach((trigger) => {
         if (trigger.vars.trigger === textRef.current) {
           trigger.kill();
         }
       });
     };
-  }, [delay, duration, triggerOnLoad, stagger, lineHeight, isLoading]);
+  }, [delay, duration, triggerOnLoad, stagger, lineHeight, scrollStart, isLoading, isReady]);
 
   return (
     <div ref={containerRef} style={{ opacity: 0 }}>

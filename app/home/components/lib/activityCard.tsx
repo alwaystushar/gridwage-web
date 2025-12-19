@@ -150,19 +150,19 @@ export default function ActivityCard() {
   return (
     <div
       ref={cardRef}
-      className="bg-[var(--white)] rounded-[4vw] md:rounded-[1.44vw] p-[6vw] md:p-[1.5vw] opacity-0 w-[72vw] md:w-[20.2vw]"
+      className="bg-(--white) rounded-[4vw] md:rounded-[1.44vw] p-[6vw] md:p-[1.5vw] opacity-0 w-[72vw] md:w-[20.2vw]"
       style={{ boxShadow: "0 0.4vw 1.6vw rgba(0, 0, 0, 0.06)" }}
     >
       {/* Card Header: Title and Icon */}
       <div className="flex items-center justify-between mb-[5vw] md:mb-[1vw]">
-        <h3 className="text-[4.8vw] md:text-[1.3vw] font-semibold text-[var(--text)]">
+        <h3 className="text-[4.8vw] md:text-[1.2vw] font-semibold text-(--text)">
           Activity
         </h3>
         {/* Calendar icon */}
         <div>
           <img 
             src="/heroSection/receipt_long.svg" 
-            className="w-[4.8vw] h-[4.8vw] md:w-[1.6vw] md:h-[1.6vw]" 
+            className="w-[4.8vw] h-[4.8vw] md:w-[1.2vw] md:h-[1.2vw]" 
             alt="Calendar" 
           />
         </div>
@@ -170,7 +170,7 @@ export default function ActivityCard() {
 
       {/* This Month Section */}
       <div className="mb-[5vw] md:mb-[1vw]">
-        <h4 className="text-[4vw] md:text-[1vw] font-semibold text-[var(--text)] mb-[3vw] md:mb-[0vw]">
+        <h4 className="text-[4vw] md:text-[1vw] font-semibold text-(--text) mb-[3vw] md:mb-0">
           This month
         </h4>
 
@@ -184,10 +184,10 @@ export default function ActivityCard() {
               alt="Shaun B." 
             />
             <div>
-              <p className="text-[3.5vw] md:text-[1vw] font-semibold text-[var(--text)]">
+              <p className="text-[3.5vw] md:text-[1vw] font-semibold text-(--text)">
                 Shaun B.
               </p>
-              <p className="text-[3vw] md:text-[0.85vw] text-[var(--gray-0)]">8 Aug 2026</p>
+              <p className="text-[3vw] md:text-[0.85vw] text-(--gray-0)">8 Aug 2026</p>
             </div>
           </div>
 
@@ -199,7 +199,7 @@ export default function ActivityCard() {
             >
               +$0
             </p>
-            <p className="text-[3vw] md:text-[0.85vw] text-[var(--gray-0)]">incoming</p>
+            <p className="text-[3vw] md:text-[0.85vw] text-(--gray-0)">incoming</p>
           </div>
         </div>
 
@@ -213,10 +213,10 @@ export default function ActivityCard() {
               alt="Sam T." 
             />
             <div>
-              <p className="text-[3.5vw] md:text-[1vw] font-semibold text-[var(--text)]">
+              <p className="text-[3.5vw] md:text-[1vw] font-semibold text-(--text)">
                 Sam T.
               </p>
-              <p className="text-[3vw] md:text-[0.85vw] text-[var(--gray-0)]">28 Jul 2026</p>
+              <p className="text-[3vw] md:text-[0.85vw] text-(--gray-0)">28 Jul 2026</p>
             </div>
           </div>
 
@@ -224,18 +224,18 @@ export default function ActivityCard() {
           <div className="text-right">
             <p 
               ref={amount2Ref}
-              className="text-[3.5vw] md:text-[1vw] font-semibold text-[var(--text)]"
+              className="text-[3.5vw] md:text-[1vw] font-semibold text-(--text)"
             >
               -$0
             </p>
-            <p className="text-[3vw] md:text-[0.85vw] text-[var(--gray-0)]">top up</p>
+            <p className="text-[3vw] md:text-[0.85vw] text-(--gray-0)">top up</p>
           </div>
         </div>
       </div>
 
       {/* Last Month Section */}
       <div>
-        <h4 className="text-[4vw] md:text-[1vw] font-semibold text-[var(--text)] mb-[3vw] md:mb-[1vw]">
+        <h4 className="text-[4vw] md:text-[1vw] font-semibold text-(--text) mb-[3vw] md:mb-[1vw]">
           Last month
         </h4>
 
@@ -249,10 +249,10 @@ export default function ActivityCard() {
               alt="Sam T." 
             />
             <div>
-              <p className="text-[3.5vw] md:text-[1vw] font-semibold text-[var(--text)]">
+              <p className="text-[3.5vw] md:text-[1vw] font-semibold text-(--text)">
                 Sam T.
               </p>
-              <p className="text-[3vw] md:text-[0.85vw] text-[var(--gray-0)]">28 Jul 2026</p>
+              <p className="text-[3vw] md:text-[0.85vw] text-(--gray-0)">28 Jul 2026</p>
             </div>
           </div>
 
@@ -260,11 +260,11 @@ export default function ActivityCard() {
           <div className="text-right">
             <p 
               ref={amount3Ref}
-              className="text-[3.5vw] md:text-[1vw] font-semibold text-[var(--text)]"
+              className="text-[3.5vw] md:text-[1vw] font-semibold text-(--text)"
             >
               -$0
             </p>
-            <p className="text-[3vw] md:text-[0.85vw] text-[var(--gray-0)]">top up</p>
+            <p className="text-[3vw] md:text-[0.85vw] text-(--gray-0)">top up</p>
           </div>
         </div>
       </div>

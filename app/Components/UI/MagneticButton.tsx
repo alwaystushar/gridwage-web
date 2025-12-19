@@ -101,7 +101,7 @@ export default function MagneticButton({
     ? { border: '0.1vw solid var(--brand-900)' }
     : {};
 
-  const commonStyles = `b3 rounded-full transition-all lg:py-[0.6vw] py-[2vw] lg:px-[1.3vw] px-[4vw] ${baseStyles} ${className}`;
+  const commonStyles = `b3 rounded-full transition-all lg:py-[0.7vw] py-[2vw] lg:px-[1.3vw] px-[4vw] ${baseStyles} ${className}`;
   
   const commonStyleProps = {
     ...borderStyle,

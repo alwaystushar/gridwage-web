@@ -43,7 +43,7 @@ export default function HeroLeft() {
   }
 
   return (
-    <div>
+    <div className="lg:mt-[4vw] mt-0">
       {/* Small Title */}
       <TextReveal
         className="b4 text-[var(--brand-600)]  lg:mb-0 mb-[2vw]"
@@ -70,7 +70,7 @@ export default function HeroLeft() {
       {/* Description - Simple fade up, no line splitting */}
       <p
         ref={descriptionRef}
-        className="b3 text-[var(--gray-0)] lg:mt-[1vw] mt-[6vw] lg:mb-[3vw] mb-[8vw] leading-[1.6] lg:max-w-[80%] opacity-0"
+        className="b3 text-[var(--gray-0)] lg:mt-[1vw] mt-[6vw] lg:mb-[3vw] mb-[8vw] leading-[1.6] lg:max-w-[82%] opacity-0"
       >
         GridWage simplifies global hiring and payroll with seamless, compliant EOR
         solutions—helping you build and manage teams anywhere with ease.
@@ -79,7 +79,7 @@ export default function HeroLeft() {
       {/* Email Input */}
       <div 
         ref={inputRef} 
-        className="flex items-center gap-[0.5vw] lg:mb-[4vw] mb-[8vw] opacity-0 border-[0.12vw] border-[var(--brand-600)]/30 rounded-full lg:p-[0.2vw] p-[1vw] bg-[var(--white)] focus-within:border-[var(--brand-600)]/100 transition-all duration-300 lg:max-w-[30vw]"
+        className="flex items-center gap-[0.5vw] lg:mb-[10vw] mb-[8vw] opacity-0 border-[0.12vw] border-[var(--brand-600)]/30 rounded-full lg:px-[0.3vw] lg:py-[0.2vw] px-[1vw] py-[1vw] bg-[var(--white)] focus-within:border-[var(--brand-600)]/100 transition-all duration-300 lg:max-w-[30vw]"
       >
         <input
           type="email"

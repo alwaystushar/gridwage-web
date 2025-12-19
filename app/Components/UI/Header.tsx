@@ -241,7 +241,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex col-span-8 justify-start items-center relative" style={{ gap: '3vw' }}>
+          <div className="hidden md:flex col-span-8 justify-end items-center relative" style={{ gap: '3vw' }}>
             {/* About Us Link */}
             <Link
               href={NAV_LINKS[0].href}
