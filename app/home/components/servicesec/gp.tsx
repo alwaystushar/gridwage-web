@@ -20,7 +20,7 @@ const payrollData: PayrollData[] = [
   {
     id: "1",
     country: "USA",
-    flagSrc: "/homepageService/us.png",
+    flagSrc: "/homepageService/Us.png",
     employees: 12,
     amount: 83000,
     currency: "$",

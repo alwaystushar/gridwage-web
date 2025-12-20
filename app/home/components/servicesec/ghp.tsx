@@ -16,6 +16,17 @@ gsap.registerPlugin(ScrollTrigger);
 // DATA CONFIGURATION
 // ============================================
 
+const countries = [
+  { code: "IN", name: "India", flagSrc: "/homepageService/india.png" },
+  { code: "US", name: "United States", flagSrc: "/homepageService/us.png" },
+  { code: "UK", name: "United Kingdom", flagSrc: "/homepageService/england.png" },
+  { code: "CA", name: "Canada", flagSrc: "/homepageService/canada.png" },
+  { code: "AU", name: "Australia", flagSrc: "/homepageService/Aus.png" },
+  { code: "SG", name: "Singapore", flagSrc: "/homepageService/singapur.png" },
+  { code: "DE", name: "Zimbabwe", flagSrc: "/homepageService/Zimbabwe.png" },
+  { code: "NZ", name: "New Zealand", flagSrc: "/homepageService/NewZealand.png" },
+];
+
 const cycleSteps: CycleStep[] = [
   {
     id: "1",
@@ -60,6 +71,15 @@ export default function ServiceSection() {
   const imageMaskRef = useRef<HTMLDivElement>(null);
   const avatarsRef = useRef<HTMLDivElement>(null);
   const statRef = useRef<HTMLDivElement>(null);
+
+  // ============================================
+  // HANDLERS
+  // ============================================
+  
+  const handleEmployeeFormSubmit = (data: any) => {
+    console.log("Employee form data:", data);
+    setIsModalOpen(true);
+  };
 
   // ============================================
   // EFFECTS
@@ -213,14 +233,19 @@ export default function ServiceSection() {
               </div>
 
               {/* Employee Form - Top Right */}
-              <div className="absolute top-[3vw] right-[3vw] md:top-[-3vw] md:right-[-3vw] z-10">
-                <div ref={avatarsRef} style={{ opacity: 0, visibility: "hidden" }}>
-                  <EmployeeForm />
-                </div>
+              <div 
+                ref={avatarsRef}
+                className="absolute bottom-[3vw] right-[3vw] md:bottom-[1vw] md:right-[-3vw] z-10"
+                style={{ opacity: 0, visibility: "hidden" }}
+              >
+                <EmployeeForm 
+                  countries={countries} 
+                  onSubmit={handleEmployeeFormSubmit}
+                />
               </div>
 
               {/* Payroll Cycle Card - Bottom Left */}
-              <div className="absolute bottom-[-8vw] left-[5vw] md:bottom-[2vw] md:left-[-4vw] z-10">
+              <div className="absolute top-[-3vw] left-[5vw] md:top-[-3vw] md:left-[-4vw] z-10">
                 <PayrollCycleCard
                   title="Payroll Cycle — Automated"
                   steps={cycleSteps}
