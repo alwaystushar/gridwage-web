@@ -5,7 +5,7 @@ import { LoadingProvider } from "./Components/UI/LoadingContext";
 import Header from "./Components/UI/Header";
 import LoadingScreen from "./Components/UI/LoadingScreen";
 import GridwageFooter from "./Components/UI/GridwageFooter";
-import ScrollToTop from "./Components/ScrollToTop"; // Add this import
+import ScrollToTop from "./Components/ScrollToTop";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -26,6 +26,30 @@ export const metadata: Metadata = {
   icons: {
     icon: "/fav.svg",
   },
+  openGraph: {
+    title: "GridWage - Global Payroll & Compliance Solutions",
+    description:
+      "Hire globally with zero entity setup. GridWage's EOR infrastructure handles local labour laws, contracts, payroll, and taxes with absolute precision.",
+    url: "https://gridwage.com", // TODO: Replace with your actual domain
+    siteName: "GridWage",
+    images: [
+      {
+        url: ".og-images/home.png", // Place this image in /public folder
+        width: 1200,
+        height: 630,
+        alt: "GridWage - Global Payroll & Compliance Solutions",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GridWage - Global Payroll & Compliance Solutions",
+    description:
+      "Hire globally with zero entity setup. GridWage's EOR infrastructure handles local labour laws, contracts, payroll, and taxes with absolute precision.",
+    images: ["/og-gridwage.png"],
+  },
 };
 
 export default function RootLayout({
@@ -43,7 +67,7 @@ export default function RootLayout({
           <Header />
           {children}
           <GridwageFooter />
-          <ScrollToTop /> {/* Add ScrollToTop here */}
+          <ScrollToTop />
         </LoadingProvider>
       </body>
     </html>
