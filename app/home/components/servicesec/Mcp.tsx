@@ -216,7 +216,7 @@ export default function ServiceSection() {
   // ============================================
   return (
     <>
-      <section ref={sectionRef} className="w-full py-[10vw] md:py-[5vw]">
+      <section ref={sectionRef} className="w-full pt-[10vw] md:pt-[1vw]">
         <div className="grid-container items-center">
           {/* ============================================ */}
           {/* LEFT CONTENT - 6 COLUMNS */}
@@ -225,7 +225,7 @@ export default function ServiceSection() {
             <div>
               {/* Label */}
               <TextReveal
-                className="text-[3.5vw] md:text-[0.85vw] font-semibold text-[var(--brand-500)] uppercase tracking-wider"
+                className="b3 font-semibold text-[var(--brand-500)] uppercase tracking-wider md:mb-0 mb-[2vw]"
                 delay={0}
                 duration={0.6}
                 stagger={0.05}
@@ -238,16 +238,16 @@ export default function ServiceSection() {
 
               {/* Heading */}
               <TextReveal
-                className="h4 font-medium text-[var(--text)]"
+                className="h3 font-medium text-[var(--text)] md:mb-0 mb-[8vw]"
                 delay={0.5}
                 stagger={0.15}
                 lineHeight="1.25"
                 triggerOnLoad={false}
                 scrollStart="top 95%"
               >
-                <h1>
+                <h2>
                   Global contractor <br /> Payroll, simplified.
-                </h1>
+                </h2>
               </TextReveal>
 
               {/* Description */}
@@ -261,8 +261,13 @@ export default function ServiceSection() {
                 scrollStart="top 95%"
               >
                 <p>
-                  Onboard independent contractors instantly, streamline agreements, and enable fast, secure payments in any currency—powered by{" "}
-                  <span className="text-[var(--brand-500)] font-semibold">GridWage&apos;s</span> advanced contractor management engine.
+                  Onboard independent contractors instantly, streamline
+                  agreements, and enable fast, secure payments in any
+                  currency—powered by{" "}
+                  <span className="text-[var(--brand-500)]">
+                    GridWage&apos;s
+                  </span>{" "}
+                  advanced contractor management engine.
                 </p>
               </TextReveal>
             </div>
@@ -307,17 +312,20 @@ export default function ServiceSection() {
                 <img
                   src="/homepageService/mcp.png"
                   alt="Contractor Management"
-                  className="w-full h-[35vw] md:h-[42vw] object-cover"
+                  className="w-full h-[100vw] md:h-[42vw] object-cover"
                 />
               </div>
 
               {/* Priority Metrics - Top Left */}
-              <div className="absolute top-[3vw] left-[3vw] md:top-[3vw] md:left-[-7vw] z-10">
-                <PriorityMetrics metrics={metricsData} metricsRef={avatarsRef} />
+              <div className="absolute top-[-3vw] left-[-3vw] md:top-[3vw] md:left-[-7vw] z-10">
+                <PriorityMetrics
+                  metrics={metricsData}
+                  metricsRef={avatarsRef}
+                />
               </div>
 
               {/* World Map - Bottom Left */}
-              <div className="absolute bottom-[-8vw] right-[10%] md:bottom-[3vw] md:right-[-3vw] z-10">
+              <div className="absolute bottom-[-8vw] right-[-2vw] md:bottom-[3vw] md:right-[-3vw] z-10">
                 <WorldMap locations={mapLocations} mapRef={statRef} />
               </div>
             </div>

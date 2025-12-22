@@ -12,17 +12,16 @@ export default function Hero() {
   }
 
   return (
-    <main className="flex   lg:mt-[8vw] mt-[20vw]   md:px-0 overflow-x-hidden">
+    <main className="flex   lg:mt-[8vw] mt-[25vw]   md:px-0 overflow-x-hidden">
       <div className="grid-container  ">
         {/* Left Content */}
         <div className="col-span-12 lg:col-span-6 mb-[8vw] lg:mb-0">
           <HeroLeft />
-          
         </div>
 
         {/* Right Content - Placeholder for cards */}
         <div className="col-span-12 lg:col-span-6">
-         <HeroRight />
+          <HeroRight />
         </div>
       </div>
     </main>

@@ -49,9 +49,9 @@ export default function LoadingScreen() {
                   : { duration: 0.4, delay: (19 - i) * 0.015, ease: "easeIn" }
               }
               className="absolute w-full h-[0.1vw] bg-[var(--brand-200)] origin-left"
-              style={{ 
+              style={{
                 top: `${i * 5}%`,
-                opacity: 0.5
+                opacity: 0.5,
               }}
             />
           ))}
@@ -68,9 +68,9 @@ export default function LoadingScreen() {
                   : { duration: 0.4, delay: (19 - i) * 0.015, ease: "easeIn" }
               }
               className="absolute h-full w-[0.1vw] bg-[var(--brand-200)] origin-top"
-              style={{ 
+              style={{
                 left: `${i * 5}%`,
-                opacity: 0.5
+                opacity: 0.5,
               }}
             />
           ))}
@@ -78,11 +78,7 @@ export default function LoadingScreen() {
           {/* Bottom Left Counter */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
-            animate={
-              !wrapUp
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0, y: 100 }
-            }
+            animate={!wrapUp ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
             transition={
               !wrapUp
                 ? { duration: 0.3, delay: 0.2 }
@@ -90,25 +86,21 @@ export default function LoadingScreen() {
             }
             className="absolute bottom-[5vw] left-[5vw] z-10"
           >
-            <div className="flex items-end" style={{ gap: '1vw' }}>
+            <div className="flex items-end" style={{ gap: "1vw" }}>
               {/* Number Counter */}
-              <h1 
+              <h1
                 className="font-bold text-(--brand-600)"
-                style={{ fontSize: '12vw', lineHeight: '1' }}
+                style={{ fontSize: "12vw", lineHeight: "1" }}
               >
                 {count}
               </h1>
-              <span 
-                className="h3 font-bold text-(--brand-400) pb-[2vw]"
-              >
+              <span className="h3 font-bold text-(--brand-400) pb-[2vw]">
                 %
               </span>
             </div>
 
             {/* Loading Text */}
-            <p className="b2 text-(--gray-0) mt-[1vw]">
-              Loading GridWage...
-            </p>
+            <p className="b2 text-(--gray-0) mt-[1vw]">Loading GridWage...</p>
           </motion.div>
         </motion.div>
       )}

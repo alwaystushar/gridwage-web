@@ -19,12 +19,20 @@ gsap.registerPlugin(ScrollTrigger);
 const countries = [
   { code: "IN", name: "India", flagSrc: "/homepageService/india.png" },
   { code: "US", name: "United States", flagSrc: "/homepageService/us.png" },
-  { code: "UK", name: "United Kingdom", flagSrc: "/homepageService/england.png" },
+  {
+    code: "UK",
+    name: "United Kingdom",
+    flagSrc: "/homepageService/england.png",
+  },
   { code: "CA", name: "Canada", flagSrc: "/homepageService/canada.png" },
   { code: "AU", name: "Australia", flagSrc: "/homepageService/Aus.png" },
   { code: "SG", name: "Singapore", flagSrc: "/homepageService/singapur.png" },
   { code: "DE", name: "Zimbabwe", flagSrc: "/homepageService/Zimbabwe.png" },
-  { code: "NZ", name: "New Zealand", flagSrc: "/homepageService/NewZealand.png" },
+  {
+    code: "NZ",
+    name: "New Zealand",
+    flagSrc: "/homepageService/NewZealand.png",
+  },
 ];
 
 const cycleSteps: CycleStep[] = [
@@ -75,7 +83,7 @@ export default function ServiceSection() {
   // ============================================
   // HANDLERS
   // ============================================
-  
+
   const handleEmployeeFormSubmit = (data: any) => {
     console.log("Employee form data:", data);
     setIsModalOpen(true);
@@ -205,12 +213,12 @@ export default function ServiceSection() {
   // ============================================
   return (
     <>
-      <section ref={sectionRef} className="w-full py-[10vw] md:py-[5vw]">
+      <section ref={sectionRef} className="w-full pt-[10vw] md:pt-[1vw] pb-[10vw] md:pb-[4vw]">
         <div className="grid-container items-center">
           {/* ============================================ */}
           {/* LEFT CONTENT - 6 COLUMNS (Order 1 mobile) */}
           {/* ============================================ */}
-          <div className="col-span-12 lg:col-span-6 relative mt-[8vw] lg:mt-0 mb-[10vw] md:mb-[4vw] order-1">
+          <div className="col-span-12 lg:col-span-6 relative mt-[8vw] lg:mt-0 mb-[10vw] md:mb-[4vw] md:order-1 order-2">
             {/* Image Container */}
             <div
               ref={imageRef}
@@ -228,24 +236,24 @@ export default function ServiceSection() {
                 <img
                   src="/homepageService/ghp.png"
                   alt="Global Payroll"
-                  className="w-full h-[35vw] md:h-[42vw] object-cover"
+                  className="w-full h-[100vw] md:h-[42vw] object-cover"
                 />
               </div>
 
               {/* Employee Form - Top Right */}
-              <div 
+              <div
                 ref={avatarsRef}
-                className="absolute bottom-[3vw] right-[3vw] md:bottom-[1vw] md:right-[-3vw] z-10"
+                className="absolute bottom-[-3vw] right-[-1vw] md:bottom-[1vw] md:right-[-3vw] z-10"
                 style={{ opacity: 0, visibility: "hidden" }}
               >
-                <EmployeeForm 
-                  countries={countries} 
+                <EmployeeForm
+                  countries={countries}
                   onSubmit={handleEmployeeFormSubmit}
                 />
               </div>
 
               {/* Payroll Cycle Card - Bottom Left */}
-              <div className="absolute top-[-3vw] left-[5vw] md:top-[-3vw] md:left-[-4vw] z-10">
+              <div className="absolute top-[-11vw] left-[-4vw] md:top-[-3vw] md:left-[-4vw] z-10">
                 <PayrollCycleCard
                   title="Payroll Cycle — Automated"
                   steps={cycleSteps}
@@ -258,11 +266,11 @@ export default function ServiceSection() {
           {/* ============================================ */}
           {/* RIGHT CONTENT - 6 COLUMNS (Order 2 mobile) */}
           {/* ============================================ */}
-          <div className="col-span-12 lg:col-span-6 flex flex-col gap-[3vw] md:gap-[2vw] order-2">
+          <div className="col-span-12 lg:col-span-6 flex flex-col gap-[3vw] md:gap-[2vw] md:order-2 order-1">
             <div>
               {/* Label */}
               <TextReveal
-                className="text-[3.5vw] md:text-[0.85vw] font-semibold text-[var(--brand-500)] uppercase tracking-wider"
+                className="b3 font-semibold text-[var(--brand-500)] uppercase tracking-wider md:mb-0 mb-[2vw]"
                 delay={0}
                 duration={0.6}
                 stagger={0.05}
@@ -270,12 +278,12 @@ export default function ServiceSection() {
                 triggerOnLoad={false}
                 scrollStart="top 95%"
               >
-                <p>Global Payroll</p>
+                <p>Global Expat Hiring & Payroll</p>
               </TextReveal>
 
               {/* Heading */}
               <TextReveal
-                className="h4 font-medium text-[var(--text)]"
+                className="h3 font-medium text-[var(--text)] md:mb-0 mb-[8vw]"
                 delay={0.5}
                 stagger={0.15}
                 lineHeight="1.25"
@@ -298,9 +306,13 @@ export default function ServiceSection() {
                 scrollStart="top 95%"
               >
                 <p>
-                  Run accurate, compliant, multi-currency payroll across 140+ countries through{" "}
-                  <span className="text-[var(--brand-500)] font-semibold">GridWage&apos;s</span> intelligent
-                  platform—built to eliminate manual work, errors, and regional complexity.
+                  Run accurate, compliant, multi-currency payroll across 140+
+                  countries through{" "}
+                  <span className="text-[var(--brand-500)]">
+                    GridWage&apos;s
+                  </span>{" "}
+                  intelligent platform—built to eliminate manual work, errors,
+                  and regional complexity.
                 </p>
               </TextReveal>
             </div>

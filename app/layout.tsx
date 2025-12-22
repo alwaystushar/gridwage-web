@@ -4,6 +4,8 @@ import "./globals.css";
 import { LoadingProvider } from "./Components/UI/LoadingContext";
 import Header from "./Components/UI/Header";
 import LoadingScreen from "./Components/UI/LoadingScreen";
+import GridwageFooter from "./Components/UI/GridwageFooter";
+import ScrollToTop from "./Components/ScrollToTop"; // Add this import
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -19,7 +21,8 @@ const tajawal = Tajawal({
 
 export const metadata: Metadata = {
   title: "GridWage - Global Payroll & Compliance Solutions",
-  description: "Hire globally with zero entity setup. GridWage's EOR infrastructure handles local labour laws, contracts, payroll, and taxes with absolute precision.",
+  description:
+    "Hire globally with zero entity setup. GridWage's EOR infrastructure handles local labour laws, contracts, payroll, and taxes with absolute precision.",
   icons: {
     icon: "/fav.svg",
   },
@@ -39,6 +42,8 @@ export default function RootLayout({
           <LoadingScreen />
           <Header />
           {children}
+          <GridwageFooter />
+          <ScrollToTop /> {/* Add ScrollToTop here */}
         </LoadingProvider>
       </body>
     </html>

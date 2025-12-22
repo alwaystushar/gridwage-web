@@ -8,7 +8,7 @@ export interface StatCardProps {
   description: string;
   icon?: React.ReactNode;
   statRef?: React.RefObject<HTMLDivElement | null>;
-  duration?: number; // Counter animation duration in milliseconds
+  duration?: number;
 }
 
 export default function StatCard({
@@ -23,7 +23,6 @@ export default function StatCard({
   const [count, setCount] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Extract numeric value
   const numericValue = typeof value === "number" ? value : parseFloat(value.toString().replace(/[^0-9.]/g, ""));
 
   useEffect(() => {
@@ -49,7 +48,6 @@ export default function StatCard({
     };
   }, []);
 
-  // Counter animation
   useEffect(() => {
     if (!isVisible) return;
 
@@ -61,7 +59,6 @@ export default function StatCard({
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
 
-      // Easing function (easeOutExpo)
       const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       
       const currentCount = Math.floor(easeOutExpo * numericValue);
@@ -89,7 +86,7 @@ export default function StatCard({
         @keyframes gentleFadeUp {
           0% {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(18px);
           }
           100% {
             opacity: 1;
@@ -111,33 +108,33 @@ export default function StatCard({
         }}
         className={`${
           isVisible ? "gentle-fade-up" : ""
-        } group relative bg-white/98 backdrop-blur-sm rounded-[3.2vw] md:rounded-[1.2vw] p-[3.2vw] md:p-[1.2vw] shadow-[0_3.2px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_4.8px_24px_rgba(0,0,0,0.10)] hover:scale-[1.02] hover:-translate-y-[0.16vw] transition-all duration-300 cursor-pointer w-[56vw] md:w-[16vw]`}
+        } group relative bg-white/98 backdrop-blur-sm rounded-[2.88vw] md:rounded-[1.2vw] p-[2.88vw] md:p-[1.2vw] shadow-[0_2.88px_14.4px_rgba(0,0,0,0.08)] hover:shadow-[0_4.32px_21.6px_rgba(0,0,0,0.10)] hover:scale-[1.02] hover:-translate-y-[0.144vw] transition-all duration-300 cursor-pointer w-[50.4vw] md:w-[16vw]`}
         style={{
           opacity: 0,
-          transform: "translateY(20px)",
+          transform: "translateY(18px)",
         }}
       >
         {/* Icon Badge - Top Right */}
         {icon && (
-          <div className="absolute top-[-1.6vw] right-[-1.6vw] md:top-[-1.6vw] md:right-[-1.6vw] w-[9.6vw] h-[9.6vw] md:w-[4.8vw] md:h-[4.8vw] flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+          <div className="absolute top-[-1.44vw] right-[-1.44vw] md:top-[-1.6vw] md:right-[-1.6vw] w-[8.64vw] h-[8.64vw] md:w-[4.8vw] md:h-[4.8vw] flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
             {icon}
           </div>
         )}
 
         {/* Value and Unit */}
-        <div className="flex items-baseline gap-[0.8vw] md:gap-[0.24vw] mb-[1.6vw] md:mb-[0.64vw]">
-          <h3 className="text-[9.6vw] md:text-[3.6vw] font-medium text-[var(--text)] leading-none tabular-nums">
+        <div className="flex items-baseline gap-[0.72vw] md:gap-[0.24vw] mb-[1.44vw] md:mb-[0.64vw]">
+          <h3 className="text-[8.64vw] md:text-[3.6vw] font-medium text-[var(--text)] leading-none tabular-nums">
             {isVisible ? count : 0}
           </h3>
           {unit && (
-            <span className="text-[4.8vw] md:text-[1.6vw] font-bold text-[var(--brand-400)]">
+            <span className="text-[4.32vw] md:text-[1.6vw] font-bold text-[var(--brand-400)]">
               {unit}
             </span>
           )}
         </div>
 
         {/* Description */}
-        <p className="text-[2.8vw] md:text-[0.8vw] text-[var(--gray-0)] leading-[1.4]">
+        <p className="text-[2.52vw] md:text-[0.8vw] text-[var(--gray-0)] leading-[1.4]">
           {description}
         </p>
       </div>

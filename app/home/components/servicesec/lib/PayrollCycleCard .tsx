@@ -106,7 +106,7 @@ export default function PayrollCycleCard({
         @keyframes gentleFadeUp {
           0% {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(18px);
           }
           100% {
             opacity: 1;
@@ -138,38 +138,38 @@ export default function PayrollCycleCard({
         }}
         className={`${
           isVisible ? "gentle-fade-up" : ""
-        } bg-white/98 backdrop-blur-sm rounded-[2.4vw] md:rounded-[0.9vw] p-[3vw] md:p-[1.2vw] shadow-[0_2.4px_12px_rgba(0,0,0,0.08)] transition-all duration-300`}
+        } bg-white/98 backdrop-blur-sm rounded-[2.16vw] md:rounded-[0.9vw] p-[2.7vw] md:p-[1.2vw] shadow-[0_2.16px_10.8px_rgba(0,0,0,0.08)] transition-all duration-300`}
         style={{
           opacity: 0,
-          transform: "translateY(20px)",
+          transform: "translateY(18px)",
         }}
       >
         {/* Title */}
-        <h2 className="text-[3vw] md:text-[0.96vw] font-semibold text-[var(--text)] mb-[3vw] md:mb-[1.2vw]">
+        <h2 className="text-[2.7vw] md:text-[0.96vw] font-semibold text-[var(--text)] mb-[2.7vw] md:mb-[1.2vw]">
           {title}
         </h2>
 
         {/* Cycle Steps */}
-        <div className="flex flex-col gap-[1.8vw] md:gap-[0.72vw]">
+        <div className="flex flex-col gap-[1.62vw] md:gap-[0.72vw]">
           {steps.map((step, index) => {
             const styles = getStatusStyles(step.status);
 
             return (
               <div
                 key={step.id}
-                className="flex items-center justify-between gap-[1.8vw] md:gap-[1.2vw]"
+                className="flex items-center justify-between gap-[1.62vw] md:gap-[1.2vw]"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                 }}
               >
                 {/* Step Label */}
-                <span className="text-[2.4vw] md:text-[0.69vw] text-[var(--text)] font-normal flex-1">
+                <span className="text-[2.16vw] md:text-[0.69vw] text-[var(--text)] font-normal flex-1">
                   {step.label}
                 </span>
 
                 {/* Status Badge - Fixed width for uniformity */}
                 <span
-                  className={`status-badge ${styles.bg} ${styles.text} ${styles.border} ${styles.hoverBg} border px-[2.4vw] py-[0.9vw] md:px-[0.9vw] md:py-[0.3vw] rounded-full text-[2.1vw] md:text-[0.6vw] font-medium text-center min-w-[20vw] md:min-w-[7vw]`}
+                  className={`status-badge ${styles.bg} ${styles.text} ${styles.border} ${styles.hoverBg} border px-[2.16vw] py-[0.81vw] md:px-[0.9vw] md:py-[0.3vw] rounded-full text-[1.89vw] md:text-[0.6vw] font-medium text-center min-w-[18vw] md:min-w-[7vw]`}
                 >
                   {getStatusLabel(step.status)}
                 </span>

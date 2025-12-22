@@ -27,7 +27,7 @@ export default function TextReveal({
   triggerOnLoad = false,
   stagger = 0.1,
   lineHeight = "1.2",
-  scrollStart = "top 85%"
+  scrollStart = "top 85%",
 }: TextRevealProps) {
   const textRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,10 +54,11 @@ export default function TextReveal({
 
   useEffect(() => {
     // Don't run if still loading or not ready
-    if (isLoading || !isReady || !textRef.current || !containerRef.current) return;
+    if (isLoading || !isReady || !textRef.current || !containerRef.current)
+      return;
 
     if (containerRef.current) {
-      containerRef.current.style.opacity = '0';
+      containerRef.current.style.opacity = "0";
     }
 
     if (splitRef.current) {
@@ -80,17 +81,17 @@ export default function TextReveal({
 
       try {
         // Handle spans
-        const spans = textRef.current.querySelectorAll('span');
+        const spans = textRef.current.querySelectorAll("span");
         spans.forEach((span) => {
           const spanElement = span as HTMLElement;
-          spanElement.style.display = 'inline-block';
-          spanElement.style.whiteSpace = 'nowrap';
+          spanElement.style.display = "inline-block";
+          spanElement.style.whiteSpace = "nowrap";
         });
 
         // Split text into lines
         const split = new SplitType(textRef.current, {
           types: "lines",
-          lineClass: "line-mask"
+          lineClass: "line-mask",
         });
         splitRef.current = split;
 
@@ -113,7 +114,7 @@ export default function TextReveal({
 
         // Show container now that split is ready
         if (containerRef.current) {
-          containerRef.current.style.opacity = '1';
+          containerRef.current.style.opacity = "1";
         }
 
         // Small delay before animating to ensure everything is painted
@@ -128,7 +129,7 @@ export default function TextReveal({
                 stagger: stagger,
                 onComplete: () => {
                   hasAnimated.current = true;
-                }
+                },
               });
             } else {
               animationRef.current = gsap.to(split.lines, {
@@ -142,13 +143,14 @@ export default function TextReveal({
                   once: true, // ← PLAYS ONLY ONCE
                   onEnter: () => {
                     hasAnimated.current = true;
-                  }
+                  },
                 },
               });
-              
+
               // Store ScrollTrigger reference
               if (animationRef.current.scrollTrigger) {
-                scrollTriggerRef.current = animationRef.current.scrollTrigger as ScrollTrigger;
+                scrollTriggerRef.current = animationRef.current
+                  .scrollTrigger as ScrollTrigger;
               }
             }
           }
@@ -157,14 +159,14 @@ export default function TextReveal({
         console.error("TextReveal animation error:", error);
         // Fallback: just show the text
         if (containerRef.current) {
-          containerRef.current.style.opacity = '1';
+          containerRef.current.style.opacity = "1";
         }
       }
     });
 
     return () => {
       cancelAnimationFrame(timeoutId);
-      
+
       if (animationRef.current) {
         animationRef.current.kill();
         animationRef.current = null;
@@ -187,7 +189,16 @@ export default function TextReveal({
         }
       });
     };
-  }, [delay, duration, triggerOnLoad, stagger, lineHeight, scrollStart, isLoading, isReady]);
+  }, [
+    delay,
+    duration,
+    triggerOnLoad,
+    stagger,
+    lineHeight,
+    scrollStart,
+    isLoading,
+    isReady,
+  ]);
 
   return (
     <div ref={containerRef} style={{ opacity: 0 }}>

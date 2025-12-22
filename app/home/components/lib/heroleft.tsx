@@ -4,39 +4,41 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useLoading } from "@/app/Components/UI/LoadingContext";
 import TextReveal from "@/app/Components/UI/TextReveal";
-import MagneticButton from "@/app/Components/UI/MagneticButton";
+import EmailCtaInput from "@/app/Components/UI/EmailCtaInput";
 
 export default function HeroLeft() {
   const { isLoading } = useLoading();
-  const descriptionRef = useRef(null);
-  const inputRef = useRef(null);
+  const descriptionRef = useRef<HTMLParagraphElement | null>(null);
+  const emailWrapperRef = useRef<HTMLDivElement | null>(null);
   const [mounted, setMounted] = useState(false);
 
+  // ensure client-only render
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
-    if (!isLoading && mounted) {
-      // Animate description
-      if (descriptionRef.current) {
-        gsap.fromTo(
-          descriptionRef.current,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, delay: 1.8, ease: "power3.out" }
-        );
-      }
+    if (!mounted || isLoading) return;
 
-      // Animate input
-      if (inputRef.current) {
-        gsap.fromTo(
-          inputRef.current,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, delay: 2.2, ease: "power3.out" }
-        );
-      }
+    const descEl = descriptionRef.current;
+    const emailEl = emailWrapperRef.current;
+
+    if (descEl) {
+      gsap.fromTo(
+        descEl,
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.2, delay: 1.2, ease: "power3.out" } // 0.6 → 1.2
+      );
     }
-  }, [isLoading, mounted]);
+
+    if (emailEl) {
+      gsap.fromTo(
+        emailEl,
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.2, delay: 1.3, ease: "power3.out" } // 0.6 → 1.2
+      );
+    }
+  }, [mounted, isLoading]);
 
   if (isLoading || !mounted) {
     return null;
@@ -46,54 +48,47 @@ export default function HeroLeft() {
     <div className="lg:mt-[4vw] mt-0">
       {/* Small Title */}
       <TextReveal
-        className="b4 text-[var(--brand-600)]  lg:mb-0 mb-[2vw]"
+        className="b4 text-[var(--brand-600)] lg:mb-0 mb-[2vw]"
         delay={1.2}
-        duration={0.6}
+        duration={1.0} // 0.6 → 1.0
         lineHeight="1.4"
         triggerOnLoad={true}
       >
-        Welcome To GridWage
+        <h1>Welcome To GridWage</h1>
       </TextReveal>
 
       {/* Main Heading */}
       <TextReveal
-        className="h4 font-medium text-[var(--text)]  "
+        className="h4 font-medium text-[var(--text)]"
         delay={0.5}
-        stagger={0.15}
+        stagger={0.25} // 0.15 → 0.25 (slower character stagger)
+        duration={1.0} // 0.6 → 1.0
         lineHeight="1.25"
         triggerOnLoad={true}
       >
-        The Power <span className="text-[var(--brand-700)]">Gird</span> for Global{" "}
-        <span className="text-[var(--brand-700)]">Wages</span>
+        The Power <span className="text-[var(--brand-700)]">Gird</span> for
+        Global <span className="text-[var(--brand-700)]">Wages</span>
       </TextReveal>
 
-      {/* Description - Simple fade up, no line splitting */}
+      {/* Description */}
       <p
         ref={descriptionRef}
         className="b3 text-[var(--gray-0)] lg:mt-[1vw] mt-[6vw] lg:mb-[3vw] mb-[8vw] leading-[1.6] lg:max-w-[82%] opacity-0"
       >
-        GridWage simplifies global hiring and payroll with seamless, compliant EOR
-        solutions—helping you build and manage teams anywhere with ease.
+        GridWage simplifies global hiring and payroll with seamless, compliant
+        EOR solutions—helping you build and manage teams anywhere with ease.
       </p>
 
       {/* Email Input */}
-      <div 
-        ref={inputRef} 
-        className="flex items-center gap-[0.5vw] lg:mb-[10vw] mb-[8vw] opacity-0 border-[0.12vw] border-[var(--brand-600)]/30 rounded-full lg:px-[0.3vw] lg:py-[0.2vw] px-[1vw] py-[1vw] bg-[var(--white)] focus-within:border-[var(--brand-600)]/100 transition-all duration-300 lg:max-w-[30vw]"
-      >
-        <input
-          type="email"
-          placeholder="Enter Email"
-          className="b3 flex-1 bg-transparent text-[var(--text)] placeholder:text-[var(--brand-100)] rounded-full border-none outline-none px-[2vw] pl-[1.5vw] py-[0.7vw]"
-        />
-        <MagneticButton variant="primary">Request Demo</MagneticButton>
+      <div ref={emailWrapperRef} className="opacity-0 lg:mb-[10vw] mb-[22vw]">
+        <EmailCtaInput />
       </div>
 
       {/* Trusted By Title */}
       <TextReveal
         className="b4 text-[var(--gray-0)] lg:mb-[1.5vw] mb-[5.5vw]"
-        delay={2.4}
-        duration={0.6}
+        delay={1.4}
+        duration={1.0} // 0.6 → 1.0
         triggerOnLoad={true}
       >
         Trusted by 10+ companies
@@ -103,38 +98,46 @@ export default function HeroLeft() {
       <div className="flex items-center flex-wrap gap-[3vw]">
         <TextReveal
           className="flex items-center h-[2vw]"
-          delay={2.6}
-          duration={0.5}
+          delay={1.6}
+          duration={0.8} // 0.5 → 0.8
           triggerOnLoad={true}
         >
-          <span className="b3 font-bold text-[var(--text)] opacity-60">TechCrunch</span>
+          <span className="b3 font-bold text-[var(--text)] opacity-60">
+            TechCrunch
+          </span>
         </TextReveal>
 
         <TextReveal
           className="flex items-center h-[2vw]"
-          delay={2.7}
-          duration={0.5}
+          delay={1.8} // 2.7 → 2.9 (slightly slower stagger)
+          duration={0.8} // 0.5 → 0.8
           triggerOnLoad={true}
         >
-          <span className="b3 font-bold text-[var(--text)] opacity-60">WSJ</span>
+          <span className="b3 font-bold text-[var(--text)] opacity-60">
+            WSJ
+          </span>
         </TextReveal>
 
         <TextReveal
           className="flex items-center h-[2vw]"
-          delay={2.8}
-          duration={0.5}
+          delay={2} // 2.8 → 3.2
+          duration={0.8} // 0.5 → 0.8
           triggerOnLoad={true}
         >
-          <span className="b3 font-bold text-[var(--text)] opacity-60">Financial Times</span>
+          <span className="b3 font-bold text-[var(--text)] opacity-60">
+            Financial Times
+          </span>
         </TextReveal>
 
         <TextReveal
           className="flex items-center h-[2vw]"
-          delay={2.9}
-          duration={0.5}
+          delay={2.2} // 2.9 → 3.5
+          duration={0.8} // 0.5 → 0.8
           triggerOnLoad={true}
         >
-          <span className="b3 font-bold text-[var(--text)] opacity-60">NBC</span>
+          <span className="b3 font-bold text-[var(--text)] opacity-60">
+            NBC
+          </span>
         </TextReveal>
       </div>
     </div>

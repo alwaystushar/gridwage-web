@@ -2,19 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLoading } from "@/app/Components/UI/LoadingContext";
 import AnalysisCard from "./analysisCard";
 import ReceivedCard from "./receivedCard";
 import ActivityCard from "./activityCard";
 
-gsap.registerPlugin(ScrollTrigger);
+// Remove ScrollTrigger import and registration since we're not using scroll animations
 
-/**
- * HeroRight Component
- * Right side of hero section containing Analysis and Received cards
- * Features: Scroll-triggered animations and decorative background
- */
 export default function HeroRight() {
   const { isLoading } = useLoading();
   const [mounted, setMounted] = useState(false);
@@ -23,20 +17,13 @@ export default function HeroRight() {
   const activityRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
 
-  /**
-   * Mount Effect Hook
-   */
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  /**
-   * Animation Effect Hook
-   * Animates background and both cards independently
-   */
   useEffect(() => {
     if (!isLoading && mounted) {
-      // Animate background
+      // Animate background immediately
       if (bgRef.current) {
         gsap.fromTo(
           bgRef.current,
@@ -46,16 +33,11 @@ export default function HeroRight() {
             opacity: 1,
             duration: 1,
             ease: "power3.out",
-            scrollTrigger: {
-              trigger: bgRef.current,
-              start: "top 90%",
-              toggleActions: "play none none reverse",
-            },
           }
         );
       }
 
-      // Animate Analysis Card
+      // Animate Analysis Card immediately
       if (analysisRef.current) {
         gsap.fromTo(
           analysisRef.current,
@@ -66,16 +48,11 @@ export default function HeroRight() {
             duration: 0.8,
             delay: 0.2,
             ease: "power3.out",
-            scrollTrigger: {
-              trigger: analysisRef.current,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
           }
         );
       }
 
-      // Animate Received Card
+      // Animate Received Card immediately
       if (receivedRef.current) {
         gsap.fromTo(
           receivedRef.current,
@@ -86,16 +63,11 @@ export default function HeroRight() {
             duration: 0.8,
             delay: 0.4,
             ease: "power3.out",
-            scrollTrigger: {
-              trigger: receivedRef.current,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
           }
         );
       }
 
-      // Animate Activity Card
+      // Animate Activity Card immediately
       if (activityRef.current) {
         gsap.fromTo(
           activityRef.current,
@@ -106,19 +78,10 @@ export default function HeroRight() {
             duration: 0.8,
             delay: 0.6,
             ease: "power3.out",
-            scrollTrigger: {
-              trigger: activityRef.current,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
           }
         );
       }
     }
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
   }, [isLoading, mounted]);
 
   if (isLoading || !mounted) {
@@ -126,18 +89,18 @@ export default function HeroRight() {
   }
 
   return (
-    <div className="relative grid grid-cols-12 gap-[3vw] md:gap-[1.5vw] md:h-[53vw] h-[170vw]">
+    <div className="relative grid grid-cols-12 gap-[3vw] md:gap-[1.5vw] md:h-[53vw] h-[130vw] ">
       {/* Background SVG */}
       <div
         ref={bgRef}
-        className="absolute w-[120vw] md:w-[70vw] h-[80vw] md:h-[40vw] right-[-30vw] md:right-[-24vw] top-[-10vw] md:top-0 pointer-events-none bg-contain bg-center bg-no-repeat z-[-1] opacity-0"
+        className="absolute w-[180vw] md:w-[70vw] h-[120vw] md:h-[40vw] right-[-95vw] md:right-[-24vw] top-[-10vw] md:top-0 pointer-events-none bg-contain bg-center bg-no-repeat z-[-1]"
         style={{ backgroundImage: "url('/heroSection/bg.svg')" }}
       />
 
       {/* Analysis Card - Left Side */}
       <div
         ref={analysisRef}
-        className="col-span-12 md:col-span-7 top-[2vw] left-[-5vw] absolute opacity-0"
+        className="col-span-12 md:col-span-7 md:top-[2vw] top-[2vw] md:left-[-5vw] left-[-1vw] absolute"
       >
         <AnalysisCard />
       </div>
@@ -145,7 +108,7 @@ export default function HeroRight() {
       {/* Received Card - Right Side */}
       <div
         ref={receivedRef}
-        className="col-span-12 md:col-span-5 opacity-0 top-[2vw] right-[3vw] absolute"
+        className="col-span-12 md:col-span-5 md:top-[2vw] top-[2vw] md:right-[3vw] right-[1vw] absolute"
       >
         <ReceivedCard />
       </div>
@@ -153,7 +116,7 @@ export default function HeroRight() {
       {/* Activity Card - Bottom */}
       <div
         ref={activityRef}
-        className="col-span-12 opacity-0 top-[42vw] md:top-[27vw] right-[3vw] absolute"
+        className="col-span-12 top-[66vw] md:top-[27vw] md:right-[3vw] right-[1vw] absolute"
       >
         <ActivityCard />
       </div>

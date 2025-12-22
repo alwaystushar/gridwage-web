@@ -9,7 +9,7 @@ import TextReveal from "@/app/Components/UI/TextReveal";
 import { useLoading } from "@/app/Components/UI/LoadingContext";
 import AvatarStack, { AvatarData } from "./lib/AvatarStack";
 import StatCard from "./lib/StatCard";
-import { img } from "framer-motion/client";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,9 +39,9 @@ const avatarData: AvatarData[] = [
 ];
 
 const GWIcon = () => (
-  <img 
-    src="/homepageService/gw.svg" 
-    alt="GW" 
+  <img
+    src="/homepageService/gw.svg"
+    alt="GW"
     className="w-full h-full object-contain"
   />
 );
@@ -113,7 +113,8 @@ export default function ServiceSection() {
         }
 
         // Animate avatar cards with stagger
-        const avatarCards = avatarsRef.current?.querySelectorAll(".avatar-card");
+        const avatarCards =
+          avatarsRef.current?.querySelectorAll(".avatar-card");
         if (avatarCards && avatarCards.length > 0) {
           tl.fromTo(
             avatarCards,
@@ -175,13 +176,13 @@ export default function ServiceSection() {
 
   return (
     <>
-      <section ref={sectionRef} className="w-full py-[10vw] md:py-[5vw]">
+      <section ref={sectionRef} className="w-full pt-[10vw] md:pt-[2vw]">
         <div className="grid-container items-center">
           {/* Left Content - 6 columns */}
-          <div className="col-span-12 lg:col-span-6 flex flex-col gap-[3vw] md:gap-[2vw]">
-            <div>
+          <div className="col-span-12 lg:col-span-6 flex flex-col gap-[6vw] md:gap-[2vw]">
+            <div className="">
               <TextReveal
-                className="text-[3.5vw] md:text-[0.85vw] font-semibold text-[var(--brand-500)] uppercase tracking-wider"
+                className="b3 font-semibold text-[var(--brand-500)] uppercase tracking-wider md:mb-0 mb-[2vw] "
                 delay={0}
                 duration={0.6}
                 stagger={0.05}
@@ -194,16 +195,16 @@ export default function ServiceSection() {
 
               {/* Main Heading (H1) with TextReveal */}
               <TextReveal
-                className="h4 font-medium text-[var(--text)]"
+                className="h3 font-medium text-[var(--text)] md:mb-0 mb-[8vw]  "
                 delay={0.5}
                 stagger={0.15}
                 lineHeight="1.25"
                 triggerOnLoad={false}
                 scrollStart="top 95%"
               >
-                <h1>
+                <h2>
                   Hire globally with <br /> zero entity setup.
-                </h1>
+                </h2>
               </TextReveal>
 
               {/* Paragraph with TextReveal */}
@@ -217,9 +218,10 @@ export default function ServiceSection() {
                 scrollStart="top 95%"
               >
                 <p>
-                <span className="text-(--brand-500)">GridWage&apos;s</span>   EOR infrastructure lets you onboard full-time
-                  employees anywhere, while we handle local labour laws,
-                  contracts, payroll, and taxes with absolute precision.
+                  <span className="text-(--brand-500)">GridWage&apos;s</span>{" "}
+                  EOR infrastructure lets you onboard full-time employees
+                  anywhere, while we handle local labour laws, contracts,
+                  payroll, and taxes with absolute precision.
                 </p>
               </TextReveal>
             </div>
@@ -261,17 +263,17 @@ export default function ServiceSection() {
                 <img
                   src="/homepageService/eor.png"
                   alt="Team collaboration"
-                  className="w-full h-[35vw] md:h-[42vw] object-cover"
+                  className="w-full h-[100vw] md:h-[42vw] object-cover"
                 />
               </div>
 
               {/* Avatar Stack positioned on top right */}
-              <div className="absolute top-[3vw] right-[3vw] md:top-[-3vw] md:right-[-3vw] z-10">
+              <div className="absolute top-[-12vw] right-[-4vw] md:top-[-3vw] md:right-[-3vw] z-10">
                 <AvatarStack avatars={avatarData} avatarsRef={avatarsRef} />
               </div>
 
               {/* Stat Card positioned at bottom */}
-              <div className="absolute bottom-[-8vw] left-[10%] md:bottom-[3vw] md:left-[-8vw] z-10">
+              <div className="absolute bottom-[-8vw] left-[-3vw] md:bottom-[3vw] md:left-[-8vw] z-10">
                 <StatCard
                   value="72"
                   unit="%"

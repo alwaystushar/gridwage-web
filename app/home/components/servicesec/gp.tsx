@@ -220,12 +220,12 @@ export default function ServiceSection() {
   // ============================================
   return (
     <>
-      <section ref={sectionRef} className="w-full py-[10vw] md:py-[5vw]">
+      <section ref={sectionRef} className="w-full pt-[10vw] md:pt-[1vw]">
         <div className="grid-container items-center">
           {/* ============================================ */}
           {/* LEFT CONTENT - 6 COLUMNS (Order 1 mobile) */}
           {/* ============================================ */}
-          <div className="col-span-12 lg:col-span-6 relative mt-[8vw] lg:mt-0 mb-[10vw] md:mb-[4vw] order-1">
+          <div className="col-span-12 lg:col-span-6 relative mt-[8vw] lg:mt-0 mb-[10vw] md:mb-[4vw] md:order-1 order-2">
             {/* Image Container */}
             <div
               ref={imageRef}
@@ -243,17 +243,20 @@ export default function ServiceSection() {
                 <img
                   src="/homepageService/gp.png"
                   alt="Global Payroll"
-                  className="w-full h-[35vw] md:h-[42vw] object-cover"
+                  className="w-full h-[100vw] md:h-[42vw] object-cover"
                 />
               </div>
 
               {/* Payroll Overview - Top Right */}
-              <div className="absolute top-[3vw] right-[3vw] md:top-[-3vw] md:right-[-3vw] z-10">
-                <PayrollOverview payrollData={payrollData} payrollRef={avatarsRef} />
+              <div className="absolute top-[-7vw] right-[3vw] md:top-[-3vw] md:right-[-3vw] z-10">
+                <PayrollOverview
+                  payrollData={payrollData}
+                  payrollRef={avatarsRef}
+                />
               </div>
 
               {/* Payroll Cycle Card - Bottom Left */}
-              <div className="absolute bottom-[-8vw] left-[5vw] md:bottom-[2vw] md:left-[-4vw] z-10">
+              <div className="absolute bottom-[-8vw] left-[-3vw] md:bottom-[2vw] md:left-[-4vw] z-10">
                 <PayrollCycleCard
                   title="Payroll Cycle — Automated"
                   steps={cycleSteps}
@@ -266,11 +269,11 @@ export default function ServiceSection() {
           {/* ============================================ */}
           {/* RIGHT CONTENT - 6 COLUMNS (Order 2 mobile) */}
           {/* ============================================ */}
-          <div className="col-span-12 lg:col-span-6 flex flex-col gap-[3vw] md:gap-[2vw] order-2">
+          <div className="col-span-12 lg:col-span-6 flex flex-col gap-[3vw] md:gap-[2vw] md:order-2 order-1">
             <div>
               {/* Label */}
               <TextReveal
-                className="text-[3.5vw] md:text-[0.85vw] font-semibold text-[var(--brand-500)] uppercase tracking-wider"
+                className="b3 font-semibold text-[var(--brand-500)] uppercase tracking-wider md:mb-0 mb-[2vw]"
                 delay={0}
                 duration={0.6}
                 stagger={0.05}
@@ -283,16 +286,16 @@ export default function ServiceSection() {
 
               {/* Heading */}
               <TextReveal
-                className="h4 font-medium text-[var(--text)]"
+                className="h3 font-medium text-[var(--text)] md:mb-0 mb-[8vw]"
                 delay={0.5}
                 stagger={0.15}
                 lineHeight="1.25"
                 triggerOnLoad={false}
                 scrollStart="top 95%"
               >
-                <h1>
+                <h2>
                   International <br /> payroll made easy.
-                </h1>
+                </h2>
               </TextReveal>
 
               {/* Description */}
@@ -306,9 +309,13 @@ export default function ServiceSection() {
                 scrollStart="top 95%"
               >
                 <p>
-                  Run accurate, compliant, multi-currency payroll across 140+ countries through{" "}
-                  <span className="text-[var(--brand-500)]">GridWage&apos;s</span> intelligent
-                  platform—built to eliminate manual work, errors, and regional complexity.
+                  Run accurate, compliant, multi-currency payroll across 140+
+                  countries through{" "}
+                  <span className="text-[var(--brand-500)]">
+                    GridWage&apos;s
+                  </span>{" "}
+                  intelligent platform—built to eliminate manual work, errors,
+                  and regional complexity.
                 </p>
               </TextReveal>
             </div>

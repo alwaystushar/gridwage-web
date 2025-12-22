@@ -49,7 +49,6 @@ export default function PayrollOverview({
     };
   }, []);
 
-  // Counter animation for all payroll items
   useEffect(() => {
     if (!isVisible) return;
 
@@ -103,7 +102,7 @@ export default function PayrollOverview({
         @keyframes gentleFadeUp {
           0% {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(16.2px);
           }
           100% {
             opacity: 1;
@@ -125,47 +124,47 @@ export default function PayrollOverview({
         }}
         className={`${
           isVisible ? "gentle-fade-up" : ""
-        } bg-white/98 backdrop-blur-sm rounded-[2.4vw] md:rounded-[0.9vw] p-[3vw] md:p-[1.2vw] shadow-[0_2.4px_12px_rgba(0,0,0,0.08)] transition-all duration-300`}
+        } bg-white/98 backdrop-blur-sm rounded-[1.944vw] md:rounded-[0.9vw] p-[2.43vw] md:p-[1.2vw] shadow-[0_1.944px_9.72px_rgba(0,0,0,0.08)] transition-all duration-300`}
         style={{
           opacity: 0,
-          transform: "translateY(20px)",
+          transform: "translateY(16.2px)",
         }}
       >
         {/* Title */}
-        <h2 className="text-[3.6vw] md:text-[1.2vw] font-semibold text-[var(--text)] mb-[2.4vw] md:mb-[0.9vw]">
+        <h2 className="text-[2.916vw] md:text-[1.2vw] font-semibold text-[var(--text)] mb-[1.944vw] md:mb-[0.9vw]">
           Your Global Payroll Overview
         </h2>
 
         {/* Payroll Items */}
-        <div className="flex flex-col gap-[1.8vw] md:gap-[0.72vw]">
+        <div className="flex flex-col gap-[1.458vw] md:gap-[0.72vw]">
           {payrollData.map((item, index) => {
             const currentCounts = counts[item.id] || { employees: 0, amount: 0 };
 
             return (
               <div
                 key={item.id}
-                className="flex items-center justify-between gap-[1.8vw] md:gap-[0.9vw] py-[1.2vw] md:py-[0.48vw] border-b border-gray-100 last:border-0"
+                className="flex items-center justify-between gap-[1.458vw] md:gap-[0.9vw] py-[0.972vw] md:py-[0.48vw] border-b border-gray-100 last:border-0"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                 }}
               >
                 {/* Left: Flag + Employees */}
-                <div className="flex items-center gap-[1.8vw] md:gap-[0.6vw] flex-1">
+                <div className="flex items-center gap-[1.458vw] md:gap-[0.6vw] flex-1">
                   {/* Flag */}
                   <img
                     src={item.flagSrc}
                     alt={item.country}
-                    className="w-[6vw] h-[6vw] md:w-[2.1vw] md:h-[2.1vw] rounded-full object-cover shadow-md"
+                    className="w-[4.86vw] h-[4.86vw] md:w-[2.1vw] md:h-[2.1vw] rounded-full object-cover shadow-md"
                   />
 
                   {/* Employees Count */}
-                  <span className="text-[2.4vw] md:text-[0.72vw] text-[var(--gray-0)] tabular-nums">
+                  <span className="text-[1.944vw] md:text-[0.72vw] text-[var(--gray-0)] tabular-nums">
                     {isVisible ? formatNumber(currentCounts.employees) : 0} Employees
                   </span>
                 </div>
 
                 {/* Right: Amount */}
-                <span className="text-[2.7vw] md:text-[0.78vw] font-semibold text-[var(--text)] tabular-nums">
+                <span className="text-[2.187vw] md:text-[0.78vw] font-semibold text-[var(--text)] tabular-nums">
                   {item.currency}
                   {isVisible ? formatNumber(currentCounts.amount) : 0}
                 </span>
