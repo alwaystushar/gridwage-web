@@ -44,12 +44,12 @@ export default function GridwageFooter() {
         <div className="col-span-12 grid grid-cols-1 md:grid-cols-12 gap-[4vw] md:gap-[2vw] text-[var(--b3-lg)] md:text-[0.9vw] leading-[1.8] md:leading-[1.4]">
           {/* Quick Links */}
           <div className="col-span-12 md:col-span-3">
-            <h4 className="h5 mb-[2vw] md:mb-[1vw] font-semibold">Quick Links</h4>
-            <ul className="space-y-[1.5vw] md:space-y-[0.4vw] opacity-80">
+            <h4 className="h5 mb-[2vw] md:mb-[1.5vw] font-semibold">Quick Links</h4>
+            <ul className="space-y-[1.5vw] md:space-y-[1.2vw] opacity-80">
               <li>
                 <Link
                   href="/"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   Home
                 </Link>
@@ -57,7 +57,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/about"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   About
                 </Link>
@@ -65,7 +65,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/pricing"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   Price
                 </Link>
@@ -73,7 +73,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/blog"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   Blogs
                 </Link>
@@ -83,12 +83,12 @@ export default function GridwageFooter() {
 
           {/* Products */}
           <div className="col-span-12 md:col-span-3">
-            <h4 className="h5 mb-[2vw] md:mb-[1vw] font-semibold">Products</h4>
-            <ul className="space-y-[1.5vw] md:space-y-[0.4vw] opacity-80">
+            <h4 className="h5 mb-[2vw] md:mb-[1.5vw] font-semibold">Products</h4>
+            <ul className="space-y-[1.5vw] md:space-y-[1.2vw] opacity-80">
               <li>
                 <Link
                   href="/products/eor"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   Employer of Record
                 </Link>
@@ -96,7 +96,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/products/global-payroll"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   Global Payroll
                 </Link>
@@ -104,7 +104,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/products/contractors"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   Manage Contractors Payments
                 </Link>
@@ -112,7 +112,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/products/expat-payroll"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   Global Expat Hiring & Payroll
                 </Link>
@@ -122,12 +122,12 @@ export default function GridwageFooter() {
 
           {/* Solutions */}
           <div className="col-span-12 md:col-span-3">
-            <h4 className="h5 mb-[2vw] md:mb-[1vw] font-semibold">Solutions</h4>
-            <ul className="space-y-[1.5vw] md:space-y-[0.4vw] opacity-80">
+            <h4 className="h5 mb-[2vw] md:mb-[1.5vw] font-semibold">Solutions</h4>
+            <ul className="space-y-[1.5vw] md:space-y-[1.2vw] opacity-80">
               <li>
                 <Link
                   href="/solutions/startups"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   For Startups & Scaleups
                 </Link>
@@ -135,7 +135,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/solutions/remote-first"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   For Remote-first Companies
                 </Link>
@@ -143,7 +143,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/solutions/smes"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   For SMEs & Growing Businesses
                 </Link>
@@ -151,7 +151,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/solutions/contractors"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   For Companies Hiring Contractors & Freelancers
                 </Link>
@@ -159,7 +159,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/solutions/hr-teams"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   For HR & People Teams
                 </Link>
@@ -169,12 +169,12 @@ export default function GridwageFooter() {
 
           {/* Get Help */}
           <div className="col-span-12 md:col-span-3">
-            <h4 className="h5 mb-[2vw] md:mb-[1vw] font-semibold">Get Help</h4>
-            <ul className="space-y-[1.5vw] md:space-y-[0.4vw] opacity-80">
+            <h4 className="h5 mb-[2vw] md:mb-[1.5vw] font-semibold">Get Help</h4>
+            <ul className="space-y-[1.5vw] md:space-y-[1.2vw] opacity-80">
               <li>
                 <Link
                   href="/help-center"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   Help center
                 </Link>
@@ -182,7 +182,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/contact-support"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   Contact support
                 </Link>
@@ -190,7 +190,7 @@ export default function GridwageFooter() {
               <li>
                 <Link
                   href="/contact-sales"
-                  className="block py-[1vw] transition-colors hover:text-[var(--brand-600)]"
+                  className="block transition-colors hover:text-[var(--brand-600)]"
                 >
                   Contact sales
                 </Link>
@@ -221,7 +221,7 @@ export default function GridwageFooter() {
             </span>
 
             {/* Social Icons */}
-            <div className="flex items-center justify-center md:justify-end gap-[2.5vw] md:gap-[0.8vw] text-[var(--text)] opacity-80 order-2 md:order-none w-full md:w-auto">
+            <div className="flex items-center justify-center md:justify-end gap-[2.5vw] md:gap-[0vw] text-[var(--text)] opacity-80 order-2 md:order-none w-full md:w-auto">
               <Link
                 href="https://facebook.com"
                 aria-label="Facebook"
@@ -244,7 +244,7 @@ export default function GridwageFooter() {
                 <Instagram className="w-[6vw] h-[6vw] md:w-[1.1vw] md:h-[1.1vw]" />
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/gridwage/"
                 aria-label="LinkedIn"
                 className="transition-colors hover:text-[var(--brand-600)] flex items-center justify-center w-[12vw] h-[12vw] md:w-[3vw] md:h-[3vw]"
               >

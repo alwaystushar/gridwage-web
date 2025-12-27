@@ -5,7 +5,6 @@ import MCP from "./components/servicesec/Mcp";
 import GHP from "./components/servicesec/ghp";
 import WhyGridWageSection from "./components/Why";
 import OrbitingIconsSection from "./components/orbit";
-import Cta from "./components/Cta";
 
 export default function Page() {
   return (
@@ -17,7 +16,6 @@ export default function Page() {
       <GHP />
       <WhyGridWageSection />
       <OrbitingIconsSection />
-      <Cta />
     </>
   );
 }

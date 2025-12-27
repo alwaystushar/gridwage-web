@@ -87,7 +87,7 @@ export default function OrbitingIconsSection() {
 
           <div className="relative">
             <img
-              src="/homepageService/Us.png"
+              src="/homepageService/us.png"
               alt="USA"
               className="w-[10vw] h-[10vw] md:w-[4vw] md:h-[4vw] rounded-full object-cover shadow-lg"
             />

@@ -174,7 +174,7 @@ const baseStyles =
   variant === "primary"
     ? "bg-[var(--brand-500)] text-[var(--white)] hover:bg-[var(--brand-700)]"
     : variant === "secondary"
-    ? "text-[var(--brand-500)] hover:bg-[var(--brand-600)] hover:text-[var(--white)]"
+    ? "text-[var(--brand-500)]  hover:text-[var(--white)]"
     : "bg-transparent text-[var(--white)] hover:bg-[var(--white)] hover:text-[var(--brand-500)]";
 
 const borderStyle =

@@ -5,10 +5,23 @@ import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { productsMenu, solutionsMenu } from "@/app/data/menuData";
 import MagneticButton from "@/app/Components/UI/MagneticButton";
-import DropdownMenu from "@/app/Components/UI/DropdownMenu";
+import DropdownMenu, { DropdownItem } from "@/app/Components/UI/DropdownMenu";
 import { useLoading } from "./LoadingContext";
+import { 
+  Globe, 
+  Briefcase, 
+  Plane, 
+  DollarSign,
+  Rocket,
+  MonitorDot,
+  TrendingUp,
+  Users,
+  Building2,
+  Shield,
+  Zap,
+  Target
+} from "lucide-react";
 
 // Navigation Links
 const NAV_LINKS = [
@@ -17,17 +30,413 @@ const NAV_LINKS = [
   { href: "/blogs", label: "Blogs", key: "blogs" },
 ];
 
+// Products menu - all icons white
+const PRODUCTS_MENU: DropdownItem[] = [
+  {
+    title: "EOR — Employer of Record",
+    description: "Hire Anywhere. Stay Compliant.",
+    slug: "eor",
+    href: "/products/eor",
+    image: "/images/eor-main.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-[var(--brand-600)] rounded-[0.5vw] flex items-center justify-center">
+        <Globe style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "Global Hiring",
+        description: "Hire employees in 150+ countries",
+        image: "/images/eor-1.jpg",
+      },
+      {
+        title: "Compliance Management",
+        description: "Stay compliant with local laws",
+        image: "/images/eor-2.jpg",
+      },
+      {
+        title: "Payroll Processing",
+        description: "Automated global payroll",
+        image: "/images/eor-3.jpg",
+      },
+      {
+        title: "Benefits Administration",
+        description: "Comprehensive benefits management",
+        image: "/images/eor-4.jpg",
+      },
+      {
+        title: "Tax Management",
+        description: "Global tax compliance",
+        image: "/images/eor-5.jpg",
+      },
+      {
+        title: "Contract Management",
+        description: "Employment contracts made easy",
+        image: "/images/eor-6.jpg",
+      },
+      {
+        title: "Onboarding Solutions",
+        description: "Seamless employee onboarding",
+        image: "/images/eor-7.jpg",
+      },
+    ],
+  },
+  {
+    title: "Contractor Management",
+    description: "Simplify Global Contracting.",
+    slug: "contractor",
+    href: "/products/contractor",
+    image: "/images/contractor-main.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-[var(--brand-600)] rounded-[0.5vw] flex items-center justify-center">
+        <Briefcase style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "Contractor Onboarding",
+        description: "Quick and compliant onboarding",
+        image: "/images/contractor-1.jpg",
+      },
+      {
+        title: "Payment Solutions",
+        description: "Pay contractors worldwide",
+        image: "/images/contractor-2.jpg",
+      },
+      {
+        title: "Invoice Management",
+        description: "Automated invoicing system",
+        image: "/images/contractor-3.jpg",
+      },
+      {
+        title: "Compliance Tracking",
+        description: "Track contractor compliance",
+        image: "/images/contractor-4.jpg",
+      },
+    ],
+  },
+  {
+    title: "Expat & Global Mobility",
+    description: "Relocation Made Seamless.",
+    slug: "expat",
+    href: "/products/expat",
+    image: "/images/expat-main.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-[var(--brand-600)] rounded-[0.5vw] flex items-center justify-center">
+        <Plane style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "Visa Support",
+        description: "Expert visa assistance",
+        image: "/images/expat-1.jpg",
+      },
+      {
+        title: "Relocation Services",
+        description: "Comprehensive relocation",
+        image: "/images/expat-2.jpg",
+      },
+      {
+        title: "Immigration Support",
+        description: "Immigration consulting",
+        image: "/images/expat-3.jpg",
+      },
+    ],
+  },
+  {
+    title: "Global Payroll",
+    description: "Pay Anyone, Anywhere.",
+    slug: "global-payroll",
+    href: "/products/global-payroll",
+    image: "/images/payroll-main.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-[var(--brand-600)] rounded-[0.5vw] flex items-center justify-center">
+        <DollarSign style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "Multi-Currency Payments",
+        description: "Pay in local currencies",
+        image: "/images/payroll-1.jpg",
+      },
+      {
+        title: "Tax Management",
+        description: "Automated tax calculations",
+        image: "/images/payroll-2.jpg",
+      },
+      {
+        title: "Payroll Reports",
+        description: "Detailed payroll analytics",
+        image: "/images/payroll-3.jpg",
+      },
+      {
+        title: "Direct Deposit",
+        description: "Instant salary transfers",
+        image: "/images/payroll-4.jpg",
+      },
+      {
+        title: "Payslip Generation",
+        description: "Automated payslip creation",
+        image: "/images/payroll-5.jpg",
+      },
+      {
+        title: "Year-End Processing",
+        description: "Annual payroll processing",
+        image: "/images/payroll-6.jpg",
+      },
+    ],
+  },
+];
+
+
+// Solutions menu - with white icons
+const SOLUTIONS_MENU: DropdownItem[] = [
+  {
+    title: "For Startups & Scaleups",
+    description: "Scale fast globally without setting up entities.",
+    slug: "startups-scaleups",
+    href: "/solutions/startups-scaleups",
+    image: "/images/solutions-startups.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
+        <Rocket style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "Quick Global Expansion",
+        description: "Enter new markets rapidly",
+        image: "/images/sol-startup-1.jpg",
+      },
+      {
+        title: "Cost-Effective Hiring",
+        description: "Reduce hiring costs",
+        image: "/images/sol-startup-2.jpg",
+      },
+      {
+        title: "Rapid Team Scaling",
+        description: "Build teams at startup speed",
+        image: "/images/sol-startup-3.jpg",
+      },
+    ],
+  },
+  {
+    title: "For Remote-First Companies",
+    description: "Build distributed teams anywhere.",
+    slug: "remote-first-companies",
+    href: "/solutions/remote-first-companies",
+    image: "/images/solutions-remote.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
+        <MonitorDot style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "Remote Team Management",
+        description: "Manage distributed teams",
+        image: "/images/sol-remote-1.jpg",
+      },
+      {
+        title: "Global Collaboration",
+        description: "Enable seamless collaboration",
+        image: "/images/sol-remote-2.jpg",
+      },
+      {
+        title: "Async Work Solutions",
+        description: "Support timezone-flexible work",
+        image: "/images/sol-remote-3.jpg",
+      },
+    ],
+  },
+  {
+    title: "For SMEs & Growing Businesses",
+    description: "Expand internationally with confidence.",
+    slug: "sme-growing-businesses",
+    href: "/solutions/sme-growing-businesses",
+    image: "/images/solutions-sme.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
+        <TrendingUp style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "International Growth",
+        description: "Scale your business globally",
+        image: "/images/sol-sme-1.jpg",
+      },
+      {
+        title: "Compliance Support",
+        description: "Stay compliant everywhere",
+        image: "/images/sol-sme-2.jpg",
+      },
+      {
+        title: "Market Entry Strategy",
+        description: "Enter new markets strategically",
+        image: "/images/sol-sme-3.jpg",
+      },
+    ],
+  },
+  {
+    title: "For HR & People Teams",
+    description: "Simplify global workforce management.",
+    slug: "hr-people-teams",
+    href: "/solutions/hr-people-teams",
+    image: "/images/solutions-hr.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
+        <Users style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "HR Automation",
+        description: "Automate HR processes",
+        image: "/images/sol-hr-1.jpg",
+      },
+      {
+        title: "People Analytics",
+        description: "Data-driven insights",
+        image: "/images/sol-hr-2.jpg",
+      },
+      {
+        title: "Talent Management",
+        description: "Attract and retain top talent",
+        image: "/images/sol-hr-3.jpg",
+      },
+    ],
+  },
+  {
+    title: "For Enterprises",
+    description: "Enterprise-grade global workforce solutions.",
+    slug: "enterprises",
+    href: "/solutions/enterprises",
+    image: "/images/solutions-enterprise.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
+        <Building2 style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "Enterprise Compliance",
+        description: "Multi-jurisdiction compliance",
+        image: "/images/sol-enterprise-1.jpg",
+      },
+      {
+        title: "Dedicated Support",
+        description: "White-glove service",
+        image: "/images/sol-enterprise-2.jpg",
+      },
+      {
+        title: "Custom Integrations",
+        description: "Seamless system integration",
+        image: "/images/sol-enterprise-3.jpg",
+      },
+    ],
+  },
+  {
+    title: "For Compliance-First Organizations",
+    description: "Built for industries with strict regulations.",
+    slug: "compliance-first",
+    href: "/solutions/compliance-first",
+    image: "/images/solutions-compliance.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
+        <Shield style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "Regulatory Compliance",
+        description: "Meet all regulatory requirements",
+        image: "/images/sol-compliance-1.jpg",
+      },
+      {
+        title: "Audit Support",
+        description: "Audit-ready documentation",
+        image: "/images/sol-compliance-2.jpg",
+      },
+      {
+        title: "Risk Management",
+        description: "Minimize compliance risks",
+        image: "/images/sol-compliance-3.jpg",
+      },
+    ],
+  },
+  {
+    title: "For Fast-Moving Teams",
+    description: "Agile hiring for dynamic organizations.",
+    slug: "fast-moving-teams",
+    href: "/solutions/fast-moving-teams",
+    image: "/images/solutions-agile.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
+        <Zap style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "Rapid Deployment",
+        description: "Hire and onboard in days",
+        image: "/images/sol-agile-1.jpg",
+      },
+      {
+        title: "Flexible Contracts",
+        description: "Adapt to changing needs",
+        image: "/images/sol-agile-2.jpg",
+      },
+      {
+        title: "Scalable Solutions",
+        description: "Grow or shrink as needed",
+        image: "/images/sol-agile-3.jpg",
+      },
+    ],
+  },
+  {
+    title: "For Mission-Driven Companies",
+    description: "Purpose-driven global hiring solutions.",
+    slug: "mission-driven",
+    href: "/solutions/mission-driven",
+    image: "/images/solutions-mission.jpg",
+    icon: (
+      <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
+        <Target style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
+      </div>
+    ),
+    items: [
+      {
+        title: "Impact Hiring",
+        description: "Hire for social impact",
+        image: "/images/sol-mission-1.jpg",
+      },
+      {
+        title: "Diverse Talent Pools",
+        description: "Access global diversity",
+        image: "/images/sol-mission-2.jpg",
+      },
+      {
+        title: "Ethical Employment",
+        description: "Fair and transparent practices",
+        image: "/images/sol-mission-3.jpg",
+      },
+    ],
+  },
+];
+
 const DROPDOWN_MENUS = {
   products: {
     key: "products",
     label: "Products",
-    items: productsMenu,
-    baseUrl: "/products",
+    items: PRODUCTS_MENU,
   },
   solutions: {
     key: "solutions",
     label: "Solutions",
-    items: solutionsMenu,
+    items: SOLUTIONS_MENU,
     baseUrl: "/solutions",
   },
 };
@@ -47,6 +456,39 @@ export default function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const { isLoading } = useLoading();
   const lastScrollY = useRef(0);
+  const menuCloseTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  // Close dropdown menu when route changes
+  useEffect(() => {
+    setActiveMenu(null);
+  }, [pathname]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.dropdown-container') && !target.closest('.dropdown-menu-wrapper')) {
+        setActiveMenu(null);
+      }
+    };
+
+    if (activeMenu) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [activeMenu]);
+
+  // Clear timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (menuCloseTimeout.current) {
+        clearTimeout(menuCloseTimeout.current);
+      }
+    };
+  }, []);
 
   // Scroll direction detection
   useEffect(() => {
@@ -59,6 +501,7 @@ export default function Header() {
         setIsHeaderVisible(true);
       } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setIsHeaderVisible(false);
+        setActiveMenu(null);
       }
 
       lastScrollY.current = currentScrollY;
@@ -114,7 +557,7 @@ export default function Header() {
 
   // Desktop underline animation
   useEffect(() => {
-    if (pathname === "/" || pathname === "/home") {
+    if (pathname === "/" || pathname === "/home" || pathname.startsWith("/products/") || pathname.startsWith("/solutions/")) {
       if (underlineRef.current) {
         const currentElement = underlineRef.current;
         const currentWidth = currentElement.offsetWidth;
@@ -133,7 +576,8 @@ export default function Header() {
       return;
     }
 
-    const activeKey = Object.entries(navRefs.current).find(([key]) =>
+    let activeKey: string | undefined;
+    activeKey = Object.entries(navRefs.current).find(([key]) =>
       pathname.startsWith(`/${key.toLowerCase()}`)
     )?.[0];
 
@@ -201,9 +645,10 @@ export default function Header() {
   // Handle window resize
   useEffect(() => {
     const handleResize = () => {
-      if (pathname === "/" || pathname === "/home") return;
+      if (pathname === "/" || pathname === "/home" || pathname.startsWith("/products/") || pathname.startsWith("/solutions/")) return;
 
-      const activeKey = Object.entries(navRefs.current).find(([key]) =>
+      let activeKey: string | undefined;
+      activeKey = Object.entries(navRefs.current).find(([key]) =>
         pathname.startsWith(`/${key.toLowerCase()}`)
       )?.[0];
 
@@ -258,8 +703,7 @@ export default function Header() {
   };
 
   const handleTryDemo = () => {
-    // Replace with your demo page route
-    window.location.href = "/demo"; // or router.push("/demo")
+    window.location.href = "/demo";
     handleMobileMenuToggle();
   };
 
@@ -267,13 +711,28 @@ export default function Header() {
     setMobileActiveMenu(mobileActiveMenu === menu ? null : menu);
   };
 
+  // Menu hover handlers with delay
+  const handleMenuEnter = (menuKey: string) => {
+    if (menuCloseTimeout.current) {
+      clearTimeout(menuCloseTimeout.current);
+      menuCloseTimeout.current = null;
+    }
+    setActiveMenu(menuKey);
+  };
+
+  const handleMenuLeave = () => {
+    menuCloseTimeout.current = setTimeout(() => {
+      setActiveMenu(null);
+    }, 200);
+  };
+
   return (
     <>
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-xs border-b border-white/20 z-50"
+        className="fixed top-0 left-0 w-full backdrop-blur-xs border-b border-white/20 z-50"
       >
-<nav className="grid-container items-center lg:py-[1vw] py-[3vw]">
+        <nav className="grid-container items-center lg:py-[1vw] py-[3vw]">
           {/* Logo */}
           <div className="col-span-2">
             <Link href="/">
@@ -301,9 +760,9 @@ export default function Header() {
 
             {/* Products Dropdown */}
             <div
-              className="relative"
-              onMouseEnter={() => setActiveMenu(DROPDOWN_MENUS.products.key)}
-              onMouseLeave={() => setActiveMenu(null)}
+              className="relative dropdown-container"
+              onMouseEnter={() => handleMenuEnter(DROPDOWN_MENUS.products.key)}
+              onMouseLeave={handleMenuLeave}
             >
               <button
                 ref={(el) => {
@@ -333,20 +792,22 @@ export default function Header() {
                 </motion.svg>
               </button>
 
-              <DropdownMenu
-                isOpen={activeMenu === DROPDOWN_MENUS.products.key}
-                items={DROPDOWN_MENUS.products.items}
-                baseUrl={DROPDOWN_MENUS.products.baseUrl}
-                gridCols={2}
-                width="50vw"
-              />
+              <div
+                onMouseEnter={() => handleMenuEnter(DROPDOWN_MENUS.products.key)}
+                onMouseLeave={handleMenuLeave}
+              >
+                <DropdownMenu
+                  isOpen={activeMenu === DROPDOWN_MENUS.products.key}
+                  items={DROPDOWN_MENUS.products.items}
+                />
+              </div>
             </div>
 
             {/* Solutions Dropdown */}
             <div
-              className="relative"
-              onMouseEnter={() => setActiveMenu(DROPDOWN_MENUS.solutions.key)}
-              onMouseLeave={() => setActiveMenu(null)}
+              className="relative dropdown-container"
+              onMouseEnter={() => handleMenuEnter(DROPDOWN_MENUS.solutions.key)}
+              onMouseLeave={handleMenuLeave}
             >
               <button
                 ref={(el) => {
@@ -376,13 +837,16 @@ export default function Header() {
                 </motion.svg>
               </button>
 
-              <DropdownMenu
-                isOpen={activeMenu === DROPDOWN_MENUS.solutions.key}
-                items={DROPDOWN_MENUS.solutions.items}
-                baseUrl={DROPDOWN_MENUS.solutions.baseUrl}
-                gridCols={1}
-                width="40vw"
-              />
+              <div
+                onMouseEnter={() => handleMenuEnter(DROPDOWN_MENUS.solutions.key)}
+                onMouseLeave={handleMenuLeave}
+              >
+                <DropdownMenu
+                  isOpen={activeMenu === DROPDOWN_MENUS.solutions.key}
+                  items={DROPDOWN_MENUS.solutions.items}
+                  baseUrl={DROPDOWN_MENUS.solutions.baseUrl}
+                />
+              </div>
             </div>
 
             {/* Pricing Link */}
@@ -412,8 +876,8 @@ export default function Header() {
               ref={underlineRef}
               className="absolute bg-[var(--brand-600)] rounded-full"
               style={{
-                bottom: "-1.5vw",
-                height: "0.2vw",
+                bottom: "-0.8vw",
+                height: "0.1vw",
                 width: 0,
                 opacity: 0,
                 left: 0,
@@ -423,9 +887,9 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex col-span-2 justify-end">
-            <MagneticButton 
-              variant="secondary" 
-              onClick={() => window.location.href = "/demo"}
+            <MagneticButton
+              variant="secondary"
+              onClick={() => (window.location.href = "/demo")}
             >
               Try demo
             </MagneticButton>
@@ -472,11 +936,7 @@ export default function Header() {
           className="fixed top-0 right-0 w-full h-screen bg-[var(--white)] z-40 md:hidden overflow-hidden"
           style={{ transform: "translateX(100%)", paddingTop: "6vw" }}
         >
-          {/* Close Button */}
-
-
           <div className="flex flex-col h-full">
-            {/* Centered items - START LEFT aligned */}
             <div
               className="flex-1 overflow-y-auto flex flex-col items-start justify-start"
               style={{ padding: "15vw 4vw 10vw" }}
@@ -490,7 +950,7 @@ export default function Header() {
               >
                 <Link
                   href="/"
-                  className={`h3  block py-3 px-4 rounded-xl transition-all ${
+                  className={`h3 block py-3 px-4 rounded-xl transition-all ${
                     pathname === "/" || pathname === "/home"
                       ? "text-[var(--brand-600)] bg-[var(--brand-50)]"
                       : "text-[var(--text)] hover:bg-[var(--brand-0)]"
@@ -532,15 +992,16 @@ export default function Header() {
                   onClick={() =>
                     toggleMobileSubmenu(DROPDOWN_MENUS.products.key)
                   }
-                  className={`h3  flex items-center justify-between w-full py-3 px-4 rounded-xl transition-all ${
-                    mobileActiveMenu === DROPDOWN_MENUS.products.key
+                  className={`h3 flex items-center justify-between w-full py-3 px-4 rounded-xl transition-all ${
+                    mobileActiveMenu === DROPDOWN_MENUS.products.key ||
+                    pathname.startsWith("/products/")
                       ? "text-[var(--brand-600)] bg-[var(--brand-50)]"
                       : "text-[var(--text)] hover:bg-[var(--brand-0)]"
                   }`}
                 >
                   <span>Products</span>
                   <motion.svg
-                    style={{ width: "0vw", height: "5vw" }}
+                    style={{ width: "5vw", height: "5vw" }}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -571,11 +1032,15 @@ export default function Header() {
                       style={{ overflow: "hidden", marginTop: "3vw" }}
                     >
                       <div style={{ paddingLeft: "4vw" }}>
-                        {DROPDOWN_MENUS.products.items.map((item, index) => (
+                        {PRODUCTS_MENU.map((item, index) => (
                           <Link
                             key={index}
-                            href={`${DROPDOWN_MENUS.products.baseUrl}/${item.slug}`}
-                            className="block hover:bg-[var(--brand-0)] transition-colors text-left"
+                            href={item.href || `/products/${item.slug}`}
+                            className={`group block border transition-all text-left ${
+                              pathname === item.href
+                                ? "bg-[var(--brand-50)] border-[var(--brand-300)]"
+                                : "bg-white border-[var(--brand-100)] hover:bg-[var(--brand-50)] hover:border-[var(--brand-300)]"
+                            }`}
                             style={{
                               padding: "3vw",
                               borderRadius: "2vw",
@@ -583,13 +1048,22 @@ export default function Header() {
                             }}
                             onClick={handleMobileMenuToggle}
                           >
+                            <div className="flex items-center gap-[2vw] mb-[1.5vw]">
+                              <div className="transform group-hover:scale-110 transition-transform duration-300">
+                                {item.icon}
+                              </div>
+                            </div>
                             <h3
-                              className="b2 font-semibold text-[var(--text)]"
+                              className={`b2 font-semibold transition-colors duration-300 ${
+                                pathname === item.href
+                                  ? "text-[var(--brand-600)]"
+                                  : "text-[var(--text)] group-hover:text-[var(--brand-600)]"
+                              }`}
                               style={{ marginBottom: "1vw" }}
                             >
                               {item.title}
                             </h3>
-                            <p className="b4 text-[var(--gray-0)]">
+                            <p className="b4 text-[var(--gray-0)] group-hover:text-[var(--gray-1)] transition-colors duration-300">
                               {item.description}
                             </p>
                           </Link>
@@ -612,14 +1086,15 @@ export default function Header() {
                     toggleMobileSubmenu(DROPDOWN_MENUS.solutions.key)
                   }
                   className={`h3 flex items-center justify-between w-full py-3 px-4 rounded-xl transition-all ${
-                    mobileActiveMenu === DROPDOWN_MENUS.solutions.key
+                    mobileActiveMenu === DROPDOWN_MENUS.solutions.key ||
+                    pathname.startsWith("/solutions/")
                       ? "text-[var(--brand-600)] bg-[var(--brand-50)]"
                       : "text-[var(--text)] hover:bg-[var(--brand-0)]"
                   }`}
                 >
                   <span>Solutions</span>
                   <motion.svg
-                    style={{ width: "0vw", height: "5vw" }}
+                    style={{ width: "5vw", height: "5vw" }}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -650,11 +1125,11 @@ export default function Header() {
                       style={{ overflow: "hidden", marginTop: "3vw" }}
                     >
                       <div style={{ paddingLeft: "4vw" }}>
-                        {DROPDOWN_MENUS.solutions.items.map((item, index) => (
+                        {SOLUTIONS_MENU.map((item, index) => (
                           <Link
                             key={index}
-                            href={`${DROPDOWN_MENUS.solutions.baseUrl}/${item.slug}`}
-                            className="block hover:bg-[var(--brand-0)] transition-colors text-left"
+                            href={item.href || `${DROPDOWN_MENUS.solutions.baseUrl}/${item.slug}`}
+                            className="group block border border-[var(--brand-100)] hover:border-[var(--brand-300)] bg-white hover:bg-[var(--brand-50)] transition-all text-left"
                             style={{
                               padding: "3vw",
                               borderRadius: "2vw",
@@ -662,13 +1137,18 @@ export default function Header() {
                             }}
                             onClick={handleMobileMenuToggle}
                           >
+                            <div className="flex items-center gap-[2vw] mb-[1.5vw]">
+                              <div className="transform group-hover:scale-110 transition-transform duration-300">
+                                {item.icon}
+                              </div>
+                            </div>
                             <h3
-                              className="b2 font-semibold text-[var(--text)]"
+                              className="b2 font-semibold text-[var(--text)] group-hover:text-[var(--brand-600)] transition-colors duration-300"
                               style={{ marginBottom: "1vw" }}
                             >
                               {item.title}
                             </h3>
-                            <p className="b4 text-[var(--gray-0)]">
+                            <p className="b4 text-[var(--gray-0)] group-hover:text-[var(--gray-1)] transition-colors duration-300">
                               {item.description}
                             </p>
                           </Link>
@@ -688,7 +1168,7 @@ export default function Header() {
               >
                 <Link
                   href={NAV_LINKS[1].href}
-                  className={`h3  block py-3 px-4 rounded-xl transition-all ${
+                  className={`h3 block py-3 px-4 rounded-xl transition-all ${
                     pathname.startsWith("/pricing")
                       ? "text-[var(--brand-600)] bg-[var(--brand-50)]"
                       : "text-[var(--text)] hover:bg-[var(--brand-0)]"
@@ -708,7 +1188,7 @@ export default function Header() {
               >
                 <Link
                   href={NAV_LINKS[2].href}
-                  className={`h3  block py-3 px-4 rounded-xl transition-all ${
+                  className={`h3 block py-3 px-4 rounded-xl transition-all ${
                     pathname.startsWith("/blogs")
                       ? "text-[var(--brand-600)] bg-[var(--brand-50)]"
                       : "text-[var(--text)] hover:bg-[var(--brand-0)]"
@@ -720,11 +1200,8 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Bottom CTA - navigates to demo page */}
-            <div
-              className=" bg-white"
-              style={{ padding: "5vw 8vw 20vw" }}
-            >
+            {/* Bottom CTA */}
+            <div className="bg-white" style={{ padding: "5vw 8vw 20vw" }}>
               <MagneticButton
                 variant="secondary"
                 className="w-full justify-center"
