@@ -55,28 +55,55 @@ export const globalPayrollProduct: Product = {
       icon: AlarmClock,
     },
   ],
-  sections: [
-    {
-      title: "One platform for all payrolls",
-      description:
-        "Bring every payroll run into a consistent workflow while keeping local nuances intact.",
-      image: "/images/products/payroll-1.png",
-      ctaLabel: "View workflow",
-      ctaHref: "/contact",
-    },
-    {
-      title: "Audit‑ready by default",
-      description:
-        "Keep a full audit trail of changes, approvals, and calculations in every cycle.",
-      image: "/images/products/payroll-2.png",
-            ctaLabel: "View workflow",
-      ctaHref: "/contact",
-    },
-    {
-      title: "Strategic payroll insights",
-      description:
-        "Turn payroll data into insights that inform headcount, expansion, and budgeting decisions.",
-      image: "/images/products/payroll-3.png",
-    },
-  ],
+sections: [
+  {
+    title: "Multi-Currency Payments",
+    description:
+      "Run global payroll in 140+ countries with seamless multi-currency support. GridWage automates cross-border payments, ensuring accurate conversions, zero delays, and full compliance with local banking standards. Pay your employees and contractors in their preferred currency—quickly, securely, and transparently.",
+    image: "/homepageService/eor.png",
+    ctaLabel: "Try Payment Demo",
+    ctaHref: "/demo",
+  },
+  {
+    title: "Tax Management",
+    description:
+      "Simplify international tax obligations with GridWage’s automated tax management system. We calculate, withhold, and file taxes across multiple jurisdictions, keeping your organization compliant and audit-ready while eliminating manual errors and administrative complexity.",
+    image: "/homepageService/eor.png",
+    ctaLabel: "Explore Tax Demo",
+    ctaHref: "/demo",
+  },
+  {
+    title: "Payroll Reports",
+    description:
+      "Gain real-time visibility into your payroll performance with detailed analytics and reporting. GridWage consolidates all pay data, deductions, and benefits into one intuitive dashboard—helping finance and HR teams make faster, data-driven decisions.",
+    image: "/homepageService/eor.png",
+    ctaLabel: "View Reports Demo",
+    ctaHref: "/demo",
+  },
+  {
+    title: "Direct Deposit",
+    description:
+      "Deliver instant salary payments directly to employee bank accounts worldwide. GridWage integrates with local banking networks for real-time, compliant deposits—ensuring your team gets paid accurately and on schedule every month.",
+    image: "/homepageService/eor.png",
+    ctaLabel: "Test Deposit Flow",
+    ctaHref: "/demo",
+  },
+  {
+    title: "Payslip Generation",
+    description:
+      "Automate payslip creation and delivery for your global workforce. GridWage generates digital payslips tailored to local legal requirements, ensuring transparency and compliance while saving hours of manual processing each pay cycle.",
+    image: "/homepageService/eor.png",
+    ctaLabel: "See Payslip Demo",
+    ctaHref: "/demo",
+  },
+  {
+    title: "Year-End Processing",
+    description:
+      "Close your payroll year effortlessly with GridWage’s automated year-end processing tools. We handle reconciliations, compliance checks, and tax summaries—so your global payroll is accurate, compliant, and audit-ready before deadlines.",
+    image: "/homepageService/eor.png",
+    ctaLabel: "Preview Year-End Tools",
+    ctaHref: "/demo",
+  },
+],
+
 };

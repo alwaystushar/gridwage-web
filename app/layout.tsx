@@ -26,9 +26,13 @@ export const metadata: Metadata = {
     template: "%s | GridWage",
   },
   description:
-    "Hire globally with zero entity setup. GridWage's EOR infrastructure handles local labour laws, contracts, payroll, and taxes with absolute precision.",
+    "Hire globally with zero entity setup. GridWage’s EOR infrastructure handles local labour laws, contracts, payroll, and taxes with absolute precision.",
   icons: {
-    icon: "/fav.svg",
+    icon: [
+      { url: "/fav.svg", type: "image/svg+xml" }, // main favicon
+    ],
+    shortcut: "/fav.svg",
+    apple: "/fav.svg",
   },
   verification: {
     google: "3J25dbodmg5QSULXB0unlfPWe4xPWRw4WhSUIM7PAJ0",
@@ -36,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GridWage - Global Payroll & Compliance Solutions",
     description:
-      "Hire globally with zero entity setup. GridWage's EOR infrastructure handles local labour laws, contracts, payroll, and taxes with absolute precision.",
+      "Hire globally with zero entity setup. GridWage’s EOR infrastructure handles local labour laws, contracts, payroll, and taxes with absolute precision.",
     url: "https://gridwage.com",
     siteName: "GridWage",
     images: [
@@ -54,10 +58,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GridWage - Global Payroll & Compliance Solutions",
     description:
-      "Hire globally with zero entity setup. GridWage's EOR infrastructure handles local labour laws, contracts, payroll, and taxes with absolute precision.",
+      "Hire globally with zero entity setup. GridWage’s EOR infrastructure handles local labour laws, contracts, payroll, and taxes with absolute precision.",
     images: ["https://gridwage.com/og-gridwage.png"],
   },
 };
+
 
 export default function RootLayout({
   children,

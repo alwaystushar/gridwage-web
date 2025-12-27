@@ -43,7 +43,7 @@ const OurVision = () => {
 
   return (
     <section className="w-full bg-[var(--brand-900)]  overflow-hidden">
-      <div className="grid-container">
+      <div className="grid-container md:pt-0 pt-[12vw]">
         {/* Left Column - Text Content */}
         <div className="col-span-12 md:col-span-6 flex flex-col justify-center items-start">
           {/* Section Tag */}
@@ -77,10 +77,10 @@ const OurVision = () => {
         </div>
 
         {/* Right Column - Image in Circle */}
-        <div className="col-span-12 md:col-span-6 relative h-[35vw] flex items-center justify-center">
+        <div className="col-span-12 md:col-span-6 relative md:h-[35vw] h-[78vw] flex items-center justify-center">
           <div
             ref={imageMaskRef}
-            className="absolute right-[-7vw] w-[85vw] h-[85vw] md:w-[45vw] md:h-[35vw] rounded-l-full overflow-hidden bg-white/10"
+            className="absolute right-[-7vw] w-[100vw] h-[78vw] md:w-[45vw] md:h-[35vw] rounded-l-full overflow-hidden bg-white/10"
           >
             <Image
               src="/about/vision.jpg"

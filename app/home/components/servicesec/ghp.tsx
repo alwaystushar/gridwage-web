@@ -246,10 +246,10 @@ export default function ServiceSection() {
                 className="absolute bottom-[-3vw] right-[-1vw] md:bottom-[1vw] md:right-[-3vw] z-10"
                 style={{ opacity: 0, visibility: "hidden" }}
               >
-                <EmployeeForm
+                {/* <EmployeeForm
                   countries={countries}
                   onSubmit={handleEmployeeFormSubmit}
-                />
+                /> */}
               </div>
 
               {/* Payroll Cycle Card - Bottom Left */}

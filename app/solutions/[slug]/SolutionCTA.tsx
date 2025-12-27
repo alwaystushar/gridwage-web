@@ -1,9 +1,9 @@
-// app/products/[slug]/ProductCTA.tsx
+// app/solutions/[slug]/SolutionCTA.tsx
 "use client";
 
 import MagneticButton from "@/app/Components/UI/MagneticButton";
 
-interface ProductHeroCTAProps {
+interface SolutionHeroCTAProps {
   primaryLabel: string;
   secondaryLabel: string;
   primaryHref?: string;
@@ -11,13 +11,13 @@ interface ProductHeroCTAProps {
   scrollToId?: string;
 }
 
-export function ProductHeroCTA({
+export function SolutionHeroCTA({
   primaryLabel,
   secondaryLabel,
   primaryHref = "/contact",
   secondaryHref,
   scrollToId = "cards-section",
-}: ProductHeroCTAProps) {
+}: SolutionHeroCTAProps) {
   return (
     <div className="flex flex-col sm:flex-row flex-wrap gap-[2.5vw] sm:gap-[2vw] md:gap-[1vw]">
       <MagneticButton
@@ -46,12 +46,12 @@ export function ProductHeroCTA({
   );
 }
 
-interface ProductSectionCTAProps {
+interface SolutionSectionCTAProps {
   label: string;
   href: string;
 }
 
-export function ProductSectionCTA({ label, href }: ProductSectionCTAProps) {
+export function SolutionSectionCTA({ label, href }: SolutionSectionCTAProps) {
   return (
     <MagneticButton
       variant="secondary"

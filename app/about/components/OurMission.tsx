@@ -82,10 +82,10 @@ const OurMission = () => {
         </div>
 
         {/* Right Column - Image with Purple Background */}
-        <div className="col-span-12 md:col-span-6 relative h-[42vw]">
+        <div className="col-span-12 md:col-span-6 relative md:h-[42vw] h-[100vw]">
           <div
             ref={imageMaskRef}
-            className="absolute right-[-6vw] w-full aspect-square bg-gradient-to-br from-purple-600 to-purple-700 overflow-hidden p-[1vw] md:p-[0.5vw] flex items-center justify-center"
+            className="absolute md:right-[-6vw] right-[-4vw] md:w-full w-[100vw] aspect-square bg-gradient-to-br from-purple-600 to-purple-700 overflow-hidden p-[1vw] md:p-[0.5vw] flex items-center justify-center"
           >
             {/* Circular Image Container */}
             <div className="relative w-full h-full rounded-full overflow-hidden">

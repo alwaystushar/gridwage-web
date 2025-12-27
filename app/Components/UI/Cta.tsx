@@ -57,7 +57,7 @@ export default function CTA() {
   return (
     <>
       {/* Purple hero section */}
-      <section className="w-full bg-[var(--brand-500)] text-white py-[0vw] overflow-x-hidden">
+      <section className="w-full bg-[var(--brand-900)] text-white py-[0vw] overflow-x-hidden">
         <div className="grid md:px-[6vw] grid-cols-12 gap-[6vw] md:gap-[4vw] items-stretch overflow-x-hidden">
           {/* LEFT: heading + CTA + counters in one column */}
           <div className="col-span-12 md:col-span-6 flex flex-col justify-center md:mt-0 mt-[8vw] max-sm:px-[4vw] overflow-x-hidden">

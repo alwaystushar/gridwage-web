@@ -12,7 +12,7 @@ export default function Hero() {
   }
 
   return (
-    <main className="flex   lg:pt-[8vw] pt-[25vw] bg-purple-50  md:px-0 overflow-x-hidden">
+    <main className="flex   lg:pt-[8vw] pt-[25vw] md:px-0 overflow-x-hidden">
       <div className="grid-container  ">
         {/* Left Content */}
         <div className="col-span-12 lg:col-span-6 mb-[8vw] lg:mb-0">

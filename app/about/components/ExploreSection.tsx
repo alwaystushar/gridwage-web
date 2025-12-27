@@ -82,8 +82,8 @@ const ExploreSection = () => {
 
               {/* Video Preview - Playing Silently */}
 
-              <div className="flex justify-center w-full mb-[6vw]">
-        <div className="w-[80vw] h-[80vh]  flex justify-center">
+              <div className="flex justify-center w-full md:mb-[6vw]">
+        <div className="md:w-[80vw] md:h-[80vh] h-[40vh]  flex justify-center">
           <div
             onClick={handleVideoClick}
             className="relative w-full  aspect-video  rounded-[1vw] overflow-hidden group cursor-pointer bg-gray-100"

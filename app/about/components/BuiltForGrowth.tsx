@@ -124,7 +124,7 @@ const BuiltForGrowth = () => {
   }, []);
 
   return (
-    <section className="w-full bg-white py-[12vw] md:py-[8vw] overflow-hidden">
+    <section className="w-full bg-white  py-[12vw] md:py-[8vw] overflow-hidden">
       <div className="grid-container">
         <div className="col-span-12 md:col-span-6 flex flex-col justify-center">
           <TextReveal>

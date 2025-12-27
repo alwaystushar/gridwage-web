@@ -13,12 +13,12 @@ export const contractorProduct: Product = {
   slug: "contractor",
   title: "Contractor Management",
   shortTitle: "Contractors",
-  description: "Onboard, pay, and manage global contractors at scale.",
+  description: "Simplify Global Contracting.",
   longDescription:
-    "GridWage centralizes agreements, invoices, and payouts so you can manage contractors compliantly in every country with a single system.",
+    "GridWage’s Contractor Management platform empowers businesses to onboard, pay, and manage contractors in 150+ countries — all while staying fully compliant with local regulations. Handle agreements, payments, and compliance effortlessly, and scale your global workforce with confidence.",
   category: "Global Contractors",
-  emoji: "🧑‍💻",
-  heroImage: "/images/products/contractor-hero.png",
+  emoji: "",
+  heroImage: "/homepageService/eor.png",
   cta: {
     primary: "Start managing contractors",
     secondary: "View workflows",
@@ -55,26 +55,40 @@ export const contractorProduct: Product = {
       icon: ShieldCheck,
     },
   ],
-  sections: [
-    {
-      title: "One workspace for every contractor",
-      description:
-        "Collect onboarding details, documents, and banking info with self‑serve flows tailored to contractor work.",
-      image: "/images/products/contractor-1.png",
-      ctaLabel: "See contractor flows",
-      ctaHref: "/contact",
-    },
-    {
-      title: "Global payouts made simple",
-      description:
-        "Automate recurring payouts, handle currency conversion, and keep every contractor paid on time.",
-      image: "/images/products/contractor-2.png",
-    },
-    {
-      title: "Stay ahead of misclassification",
-      description:
-        "Use risk signals and guidelines to ensure contractors are engaged compliantly in each jurisdiction.",
-      image: "/images/products/contractor-3.png",
-    },
-  ],
+sections: [
+  {
+    title: "Contractor Onboarding",
+    description:
+      "Seamlessly onboard independent contractors in over 150 countries with GridWage’s fully compliant onboarding framework. Our platform automates documentation, background verification, and worker classification—ensuring that every engagement meets local employment, tax, and labor requirements. Accelerate setup times, reduce administrative workload, and give your contractors a frictionless start to their journey.",
+    image: "/homepageService/eor.png",
+    ctaLabel: "Start Onboarding Demo",
+    ctaHref: "/demo",
+  },
+  {
+    title: "Payment Solutions",
+    description:
+      "Simplify cross-border contractor payments with GridWage’s automated global payout system. Send instant, secure payments in multiple currencies with real-time conversion and full tax compliance. Whether you’re paying one contractor or hundreds, GridWage ensures timely, transparent, and compliant disbursements—eliminating the complexity of global banking networks and foreign exchange management.",
+    image: "/homepageService/eor.png",
+    ctaLabel: "Try Payment Demo",
+    ctaHref: "/demo",
+  },
+  {
+    title: "Invoice Management",
+    description:
+      "Streamline your billing workflow with GridWage’s smart invoicing engine. Automatically generate, validate, and process contractor invoices with full visibility into approvals and payment status. Gain centralized control over all your contractor expenses while maintaining compliance with local accounting and tax regulations—saving time, reducing errors, and improving financial accuracy across your organization.",
+    image: "/homepageService/eor.png",
+    ctaLabel: "View Invoice Workflow",
+    ctaHref: "/demo",
+  },
+  {
+    title: "Compliance Tracking",
+    description:
+      "Stay globally compliant with real-time visibility into your contractor network. GridWage continuously monitors worker classification, legal changes, and tax regulations across 150+ jurisdictions. Our compliance tracking system ensures every contractor engagement meets local laws, reducing misclassification risks and keeping your business audit-ready and protected at all times.",
+    image: "/homepageService/eor.png",
+    ctaLabel: "Explore Compliance Tools",
+    ctaHref: "/demo",
+  },
+],
+
+
 };

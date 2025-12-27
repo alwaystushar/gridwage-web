@@ -197,7 +197,7 @@ const SOLUTIONS_MENU: DropdownItem[] = [
     title: "For Startups & Scaleups",
     description: "Scale fast globally without setting up entities.",
     slug: "startups-scaleups",
-    href: "/solutions/startups-scaleups",
+    href: "/solutions/startups",
     image: "/images/solutions-startups.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
@@ -254,8 +254,8 @@ const SOLUTIONS_MENU: DropdownItem[] = [
   {
     title: "For SMEs & Growing Businesses",
     description: "Expand internationally with confidence.",
-    slug: "sme-growing-businesses",
-    href: "/solutions/sme-growing-businesses",
+    slug: "smes-growing-businesses",
+    href: "/solutions/smes-growing-businesses",
     image: "/images/solutions-sme.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
@@ -1036,10 +1036,10 @@ export default function Header() {
                           <Link
                             key={index}
                             href={item.href || `/products/${item.slug}`}
-                            className={`group block border transition-all text-left ${
+                            className={`group block md:border transition-all text-left ${
                               pathname === item.href
-                                ? "bg-[var(--brand-50)] border-[var(--brand-300)]"
-                                : "bg-white border-[var(--brand-100)] hover:bg-[var(--brand-50)] hover:border-[var(--brand-300)]"
+                                ? "md:bg-[var(--brand-50)] md:border-[var(--brand-300)]"
+                                : "bg-white md:border-[var(--brand-100)] hover:bg-[var(--brand-50)] hover:border-[var(--brand-300)]"
                             }`}
                             style={{
                               padding: "3vw",
@@ -1048,7 +1048,7 @@ export default function Header() {
                             }}
                             onClick={handleMobileMenuToggle}
                           >
-                            <div className="flex items-center gap-[2vw] mb-[1.5vw]">
+                            <div className="flex items-center gap-[2vw] mb-[1.5vw] hidden md:visible">
                               <div className="transform group-hover:scale-110 transition-transform duration-300">
                                 {item.icon}
                               </div>
@@ -1129,7 +1129,7 @@ export default function Header() {
                           <Link
                             key={index}
                             href={item.href || `${DROPDOWN_MENUS.solutions.baseUrl}/${item.slug}`}
-                            className="group block border border-[var(--brand-100)] hover:border-[var(--brand-300)] bg-white hover:bg-[var(--brand-50)] transition-all text-left"
+                            className="group block md:border border-[var(--brand-100)] hover:border-[var(--brand-300)] bg-white hover:bg-[var(--brand-50)] transition-all text-left"
                             style={{
                               padding: "3vw",
                               borderRadius: "2vw",
@@ -1137,7 +1137,7 @@ export default function Header() {
                             }}
                             onClick={handleMobileMenuToggle}
                           >
-                            <div className="flex items-center gap-[2vw] mb-[1.5vw]">
+                            <div className="flex items-center gap-[2vw] mb-[1.5vw] hidden md:visible">
                               <div className="transform group-hover:scale-110 transition-transform duration-300">
                                 {item.icon}
                               </div>

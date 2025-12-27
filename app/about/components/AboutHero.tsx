@@ -52,7 +52,7 @@ const AboutHero = () => {
   }, [pathname]);
 
   return (
-    <section className="w-full py-[12vw] md:py-[0vw] mt-[8vw] md:mt-[8vw]  overflow-x-hidden">
+    <section className="w-full py-[12vw] md:py-[0vw] mt-[14vw] md:mt-[8vw]  overflow-x-hidden">
       <div className="grid-container grid grid-cols-12 gap-[6vw] md:gap-[4vw] items-center">
         {/* Left: Text Content */}
         <div className="col-span-12 md:col-span-6 text-left">
