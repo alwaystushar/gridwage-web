@@ -227,7 +227,7 @@ const SOLUTIONS_MENU: DropdownItem[] = [
     description: "Build distributed teams anywhere.",
     slug: "remote-first-companies",
     href: "/solutions/remote-first-companies",
-    image: "/images/solutions-remote.jpg",
+    image: "/menu/remote.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
         <MonitorDot style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -237,17 +237,17 @@ const SOLUTIONS_MENU: DropdownItem[] = [
       {
         title: "Remote Team Management",
         description: "Manage distributed teams",
-        image: "/images/sol-remote-1.jpg",
+        image: "/menu/remote-1.jpg",
       },
       {
         title: "Global Collaboration",
         description: "Enable seamless collaboration",
-        image: "/images/sol-remote-2.jpg",
+        image: "/menu/remote-2.jpg",
       },
       {
         title: "Async Work Solutions",
         description: "Support timezone-flexible work",
-        image: "/images/sol-remote-3.jpg",
+        image: "/menu/remote-3.jpg",
       },
     ],
   },
@@ -256,7 +256,7 @@ const SOLUTIONS_MENU: DropdownItem[] = [
     description: "Expand internationally with confidence.",
     slug: "smes-growing-businesses",
     href: "/solutions/smes-growing-businesses",
-    image: "/images/solutions-sme.jpg",
+    image: "/menu/sme.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
         <TrendingUp style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -266,17 +266,17 @@ const SOLUTIONS_MENU: DropdownItem[] = [
       {
         title: "International Growth",
         description: "Scale your business globally",
-        image: "/images/sol-sme-1.jpg",
+        image: "/menu/sme-1.jpg",
       },
       {
         title: "Compliance Support",
         description: "Stay compliant everywhere",
-        image: "/images/sol-sme-2.jpg",
+        image: "/menu/sme-2.jpg",
       },
       {
         title: "Market Entry Strategy",
         description: "Enter new markets strategically",
-        image: "/images/sol-sme-3.jpg",
+        image: "/menu/sme-3.jpg",
       },
     ],
   },
@@ -285,7 +285,7 @@ const SOLUTIONS_MENU: DropdownItem[] = [
     description: "Simplify global workforce management.",
     slug: "hr-people-teams",
     href: "/solutions/hr-people-teams",
-    image: "/images/solutions-hr.jpg",
+    image: "/menu/hr.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
         <Users style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -295,17 +295,17 @@ const SOLUTIONS_MENU: DropdownItem[] = [
       {
         title: "HR Automation",
         description: "Automate HR processes",
-        image: "/images/sol-hr-1.jpg",
+        image: "/menu/hr-1.jpg",
       },
       {
         title: "People Analytics",
         description: "Data-driven insights",
-        image: "/images/sol-hr-2.jpg",
+        image: "/menu/hr-2.jpg",
       },
       {
         title: "Talent Management",
         description: "Attract and retain top talent",
-        image: "/images/sol-hr-3.jpg",
+        image: "/menu/hr-3.jpg",
       },
     ],
   },
@@ -314,7 +314,7 @@ const SOLUTIONS_MENU: DropdownItem[] = [
     description: "Enterprise-grade global workforce solutions.",
     slug: "enterprises",
     href: "/solutions/enterprises",
-    image: "/images/solutions-enterprise.jpg",
+    image: "/menu/enterprise.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
         <Building2 style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -324,17 +324,17 @@ const SOLUTIONS_MENU: DropdownItem[] = [
       {
         title: "Enterprise Compliance",
         description: "Multi-jurisdiction compliance",
-        image: "/images/sol-enterprise-1.jpg",
+        image: "/menu/enterprise-1.jpg",
       },
       {
         title: "Dedicated Support",
         description: "White-glove service",
-        image: "/images/sol-enterprise-2.jpg",
+        image: "/menu/enterprise-2.jpg",
       },
       {
         title: "Custom Integrations",
         description: "Seamless system integration",
-        image: "/images/sol-enterprise-3.jpg",
+        image: "/menu/enterprise-3.jpg",
       },
     ],
   },
@@ -343,7 +343,7 @@ const SOLUTIONS_MENU: DropdownItem[] = [
     description: "Built for industries with strict regulations.",
     slug: "compliance-first",
     href: "/solutions/compliance-first",
-    image: "/images/solutions-compliance.jpg",
+    image: "/menu/compliance.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
         <Shield style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -353,17 +353,17 @@ const SOLUTIONS_MENU: DropdownItem[] = [
       {
         title: "Regulatory Compliance",
         description: "Meet all regulatory requirements",
-        image: "/images/sol-compliance-1.jpg",
+        image: "/menu/compliance-1.jpg",
       },
       {
         title: "Audit Support",
         description: "Audit-ready documentation",
-        image: "/images/sol-compliance-2.jpg",
+        image: "/menu/compliance-2.jpg",
       },
       {
         title: "Risk Management",
         description: "Minimize compliance risks",
-        image: "/images/sol-compliance-3.jpg",
+        image: "/menu/compliance-3.jpg",
       },
     ],
   },
@@ -372,7 +372,7 @@ const SOLUTIONS_MENU: DropdownItem[] = [
     description: "Agile hiring for dynamic organizations.",
     slug: "fast-moving-teams",
     href: "/solutions/fast-moving-teams",
-    image: "/images/solutions-agile.jpg",
+    image: "/menu/agile.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
         <Zap style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -382,17 +382,17 @@ const SOLUTIONS_MENU: DropdownItem[] = [
       {
         title: "Rapid Deployment",
         description: "Hire and onboard in days",
-        image: "/images/sol-agile-1.jpg",
+        image: "/menu/agile-1.jpg",
       },
       {
         title: "Flexible Contracts",
         description: "Adapt to changing needs",
-        image: "/images/sol-agile-2.jpg",
+        image: "/menu/agile-2.jpg",
       },
       {
         title: "Scalable Solutions",
         description: "Grow or shrink as needed",
-        image: "/images/sol-agile-3.jpg",
+        image: "/menu/agile-3.jpg",
       },
     ],
   },
@@ -401,7 +401,7 @@ const SOLUTIONS_MENU: DropdownItem[] = [
     description: "Purpose-driven global hiring solutions.",
     slug: "mission-driven",
     href: "/solutions/mission-driven",
-    image: "/images/solutions-mission.jpg",
+    image: "/menu/mission.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
         <Target style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -411,17 +411,17 @@ const SOLUTIONS_MENU: DropdownItem[] = [
       {
         title: "Impact Hiring",
         description: "Hire for social impact",
-        image: "/images/sol-mission-1.jpg",
+        image: "/menu/mission-1.jpg",
       },
       {
         title: "Diverse Talent Pools",
         description: "Access global diversity",
-        image: "/images/sol-mission-2.jpg",
+        image: "/menu/mission-2.jpg",
       },
       {
         title: "Ethical Employment",
         description: "Fair and transparent practices",
-        image: "/images/sol-mission-3.jpg",
+        image: "/menu/mission-3.jpg",
       },
     ],
   },
