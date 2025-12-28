@@ -18,13 +18,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const countries = [
   { code: "IN", name: "India", flagSrc: "/homepageService/india.png" },
-  { code: "US", name: "United States", flagSrc: "/homepageService/us.png" },
+  { code: "US", name: "United States", flagSrc: "/homepageService/Us.png" },
   {
     code: "UK",
     name: "United Kingdom",
     flagSrc: "/homepageService/england.png",
   },
-  { code: "CA", name: "Canada", flagSrc: "/homepageService/canada.png" },
+  { code: "CA", name: "Canada", flagSrc: "/homepageService/Canada.png" },
   { code: "AU", name: "Australia", flagSrc: "/homepageService/Aus.png" },
   { code: "SG", name: "Singapore", flagSrc: "/homepageService/singapur.png" },
   { code: "DE", name: "Zimbabwe", flagSrc: "/homepageService/Zimbabwe.png" },
