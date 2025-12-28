@@ -37,7 +37,7 @@ const PRODUCTS_MENU: DropdownItem[] = [
     description: "Hire Anywhere. Stay Compliant.",
     slug: "eor",
     href: "/products/eor",
-    image: "/images/eor-main.jpg",
+    image: "/menu/eor.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-[var(--brand-600)] rounded-[0.5vw] flex items-center justify-center">
         <Globe style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -47,37 +47,37 @@ const PRODUCTS_MENU: DropdownItem[] = [
       {
         title: "Global Hiring",
         description: "Hire employees in 150+ countries",
-        image: "/images/eor-1.jpg",
+        image: "/menu/eor-1.jpg",
       },
       {
         title: "Compliance Management",
         description: "Stay compliant with local laws",
-        image: "/images/eor-2.jpg",
+        image: "/menu/eor-2.jpg",
       },
       {
         title: "Payroll Processing",
         description: "Automated global payroll",
-        image: "/images/eor-3.jpg",
+        image: "/menu/eor-3.jpg",
       },
       {
         title: "Benefits Administration",
         description: "Comprehensive benefits management",
-        image: "/images/eor-4.jpg",
+        image: "/menu/eor-4.jpg",
       },
       {
         title: "Tax Management",
         description: "Global tax compliance",
-        image: "/images/eor-5.jpg",
+        image: "/menu/eor-5.jpg",
       },
       {
         title: "Contract Management",
         description: "Employment contracts made easy",
-        image: "/images/eor-6.jpg",
+        image: "/menu/eor-6.jpg",
       },
       {
         title: "Onboarding Solutions",
         description: "Seamless employee onboarding",
-        image: "/images/eor-7.jpg",
+        image: "/menu/eor-7.jpg",
       },
     ],
   },
@@ -86,7 +86,7 @@ const PRODUCTS_MENU: DropdownItem[] = [
     description: "Simplify Global Contracting.",
     slug: "contractor",
     href: "/products/contractor",
-    image: "/images/contractor-main.jpg",
+    image: "/menu/contractor.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-[var(--brand-600)] rounded-[0.5vw] flex items-center justify-center">
         <Briefcase style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -96,22 +96,22 @@ const PRODUCTS_MENU: DropdownItem[] = [
       {
         title: "Contractor Onboarding",
         description: "Quick and compliant onboarding",
-        image: "/images/contractor-1.jpg",
+        image: "/menu/contractor-1.jpg",
       },
       {
         title: "Payment Solutions",
         description: "Pay contractors worldwide",
-        image: "/images/contractor-2.jpg",
+        image: "/menu/contractor-2.jpg",
       },
       {
         title: "Invoice Management",
         description: "Automated invoicing system",
-        image: "/images/contractor-3.jpg",
+        image: "/menu/contractor-3.jpg",
       },
       {
         title: "Compliance Tracking",
         description: "Track contractor compliance",
-        image: "/images/contractor-4.jpg",
+        image: "/menu/contractor-4.jpg",
       },
     ],
   },
@@ -120,7 +120,7 @@ const PRODUCTS_MENU: DropdownItem[] = [
     description: "Relocation Made Seamless.",
     slug: "expat",
     href: "/products/expat",
-    image: "/images/expat-main.jpg",
+    image: "/menu/expat.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-[var(--brand-600)] rounded-[0.5vw] flex items-center justify-center">
         <Plane style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -130,17 +130,17 @@ const PRODUCTS_MENU: DropdownItem[] = [
       {
         title: "Visa Support",
         description: "Expert visa assistance",
-        image: "/images/expat-1.jpg",
+        image: "/menu/expat-1.jpg",
       },
       {
         title: "Relocation Services",
         description: "Comprehensive relocation",
-        image: "/images/expat-2.jpg",
+        image: "/menu/expat-2.jpg",
       },
       {
         title: "Immigration Support",
         description: "Immigration consulting",
-        image: "/images/expat-3.jpg",
+        image: "/menu/expat-3.jpg",
       },
     ],
   },
@@ -149,7 +149,7 @@ const PRODUCTS_MENU: DropdownItem[] = [
     description: "Pay Anyone, Anywhere.",
     slug: "global-payroll",
     href: "/products/global-payroll",
-    image: "/images/payroll-main.jpg",
+    image: "/menu/payroll.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-[var(--brand-600)] rounded-[0.5vw] flex items-center justify-center">
         <DollarSign style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -159,32 +159,32 @@ const PRODUCTS_MENU: DropdownItem[] = [
       {
         title: "Multi-Currency Payments",
         description: "Pay in local currencies",
-        image: "/images/payroll-1.jpg",
+        image: "/menu/payroll-1.jpg",
       },
       {
         title: "Tax Management",
         description: "Automated tax calculations",
-        image: "/images/payroll-2.jpg",
+        image: "/menu/payroll-2.jpg",
       },
       {
         title: "Payroll Reports",
         description: "Detailed payroll analytics",
-        image: "/images/payroll-3.jpg",
+        image: "/menu/payroll-3.jpg",
       },
       {
         title: "Direct Deposit",
         description: "Instant salary transfers",
-        image: "/images/payroll-4.jpg",
+        image: "/menu/payroll-4.jpg",
       },
       {
         title: "Payslip Generation",
         description: "Automated payslip creation",
-        image: "/images/payroll-5.jpg",
+        image: "/menu/payroll-5.jpg",
       },
       {
         title: "Year-End Processing",
         description: "Annual payroll processing",
-        image: "/images/payroll-6.jpg",
+        image: "/menu/payroll-6.jpg",
       },
     ],
   },
@@ -198,7 +198,7 @@ const SOLUTIONS_MENU: DropdownItem[] = [
     description: "Scale fast globally without setting up entities.",
     slug: "startups-scaleups",
     href: "/solutions/startups",
-    image: "/images/solutions-startups.jpg",
+    image: "/menu/startups.jpg",
     icon: (
       <div className="w-[2.5vw] h-[2.5vw] bg-purple-700 rounded-[0.5vw] flex items-center justify-center">
         <Rocket style={{ width: "1.3vw", height: "1.3vw" }} strokeWidth={2} color="white" />
@@ -208,17 +208,17 @@ const SOLUTIONS_MENU: DropdownItem[] = [
       {
         title: "Quick Global Expansion",
         description: "Enter new markets rapidly",
-        image: "/images/sol-startup-1.jpg",
+        image: "/menu/startups-1.jpg",
       },
       {
         title: "Cost-Effective Hiring",
         description: "Reduce hiring costs",
-        image: "/images/sol-startup-2.jpg",
+        image: "/menu/startups-2.jpg",
       },
       {
         title: "Rapid Team Scaling",
         description: "Build teams at startup speed",
-        image: "/images/sol-startup-3.jpg",
+        image: "/menu/startups-3.jpg",
       },
     ],
   },
