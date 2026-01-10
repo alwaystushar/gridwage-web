@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation"; // Add useRouter
 import MagneticButton from "@/app/Components/UI/MagneticButton";
 import DropdownMenu, { DropdownItem } from "@/app/Components/UI/DropdownMenu";
 import { useLoading } from "./LoadingContext";
@@ -441,11 +441,14 @@ const DROPDOWN_MENUS = {
   },
 };
 
+
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileActiveMenu, setMobileActiveMenu] = useState<string | null>(null);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const router = useRouter(); // Add router
+
 
   const pathname = usePathname();
   const underlineRef = useRef<HTMLDivElement>(null);
@@ -471,6 +474,13 @@ export default function Header() {
         setActiveMenu(null);
       }
     };
+
+
+      const handleTryDemo = () => {
+    router.push("/demo"); // Use router.push instead of window.location.href
+    handleMobileMenuToggle();
+  };
+
 
     if (activeMenu) {
       document.addEventListener('click', handleClickOutside);
@@ -887,12 +897,11 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex col-span-2 justify-end">
-            <MagneticButton
-              variant="secondary"
-              onClick={() => (window.location.href = "/demo")}
-            >
-              Try demo
-            </MagneticButton>
+            <Link href="/demo">
+              <MagneticButton variant="secondary">
+                Try demo
+              </MagneticButton>
+            </Link>
           </div>
 
           {/* Mobile Hamburger */}
@@ -1202,13 +1211,13 @@ export default function Header() {
 
             {/* Bottom CTA */}
             <div className="bg-white" style={{ padding: "5vw 8vw 20vw" }}>
-              <MagneticButton
-                variant="secondary"
-                className="w-full justify-center"
-                onClick={handleTryDemo}
-              >
-                Try demo
-              </MagneticButton>
+            <MagneticButton
+              variant="secondary"
+              className="w-full justify-center"
+              onClick={handleTryDemo}
+            >
+              Try demo
+            </MagneticButton>
             </div>
           </div>
         </div>
