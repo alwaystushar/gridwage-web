@@ -1,4 +1,3 @@
-// app/demo/DemoForm.tsx
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -392,6 +391,7 @@ export default function DemoForm() {
     return Object.keys(newErrors).length === 0;
   };
 
+  // 🔥 NEW REAL PHP BACKEND INTEGRATION
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -401,22 +401,61 @@ export default function DemoForm() {
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch('/submit-demo.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          companyName: formData.companyName.trim(),
+          companySize: formData.companySize,
+          country: formData.country,
+          message: formData.message.trim(),
+        }).toString(),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSuccess(true);
+        
+        // Reset form after success message
+        setTimeout(() => {
+          setFormData({
+            name: "",
+            email: "",
+            companyName: "",
+            companySize: "",
+            country: "",
+            message: "",
+          });
+          setIsSuccess(false);
+          setErrors({});
+        }, 4000);
+      } else {
+        alert(result.message || 'Please try again.');
+        if (result.errors) {
+          const newErrors: Record<string, string> = {};
+          result.errors.forEach((error: string) => {
+            if (error.includes('Name')) newErrors.name = error;
+            if (error.includes('email')) newErrors.email = error;
+            if (error.includes('Company')) newErrors.companyName = error;
+            if (error.includes('size')) newErrors.companySize = error;
+            if (error.includes('Country')) newErrors.country = error;
+            if (error.includes('Message')) newErrors.message = error;
+          });
+          setErrors(newErrors);
+        }
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Network error. Please email info@gridwage.com directly.');
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      
-      setTimeout(() => {
-        setFormData({
-          name: "",
-          email: "",
-          companyName: "",
-          companySize: "",
-          country: "",
-          message: "",
-        });
-        setIsSuccess(false);
-      }, 3000);
-    }, 1500);
+    }
   };
 
   const handleChange = (
@@ -424,7 +463,7 @@ export default function DemoForm() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) {
+    if (errors[name as keyof typeof errors]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
@@ -530,7 +569,7 @@ export default function DemoForm() {
               : "top-[2.3vw] md:top-[0.64vw] text-[3.07vw] md:text-[0.704vw] text-gray-400"
           }`}
         >
-          Work Email *
+          Email *
         </label>
         {errors.email && (
           <p className="text-red-500 text-[2.3vw] md:text-[0.544vw] mt-[0.77vw] md:mt-[0.256vw]">
@@ -638,41 +677,42 @@ export default function DemoForm() {
         )}
       </div>
 
-      {/* Submit Button */}
-      <div className="pt-[2.3vw] md:pt-[0.64vw]">
-        {isSubmitting ? (
-          <div className="w-full flex items-center justify-center bg-[var(--brand-600)] opacity-50 cursor-not-allowed py-[2.3vw] md:py-[0.64vw] px-[3.07vw] md:px-[0.96vw] rounded-full text-white font-medium text-[3.07vw] md:text-[0.704vw]">
-            <svg
-              className="animate-spin h-[3.07vw] w-[3.07vw] md:h-[0.768vw] md:w-[0.768vw] text-white mr-[1.54vw] md:mr-[0.32vw]"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-            Submitting...
-          </div>
-        ) : (
-          <MagneticButton
-            variant="primary"
-            className="w-full flex justify-center"
-          >
-            Submit Request
-          </MagneticButton>
-        )}
-      </div>
+
+{/* Submit Button - Fixed: Right-aligned, not full width */}
+<div className="pt-[2.3vw] md:pt-[0.64vw] flex justify-end">
+  {isSubmitting ? (
+    <div className="flex items-center bg-[var(--brand-600)] opacity-50 cursor-not-allowed py-[2.3vw] md:py-[0.64vw] px-[3.07vw] md:px-[1.92vw] rounded-full text-white font-medium text-[3.07vw] md:text-[0.704vw]">
+      <svg
+        className="animate-spin h-[3.07vw] w-[3.07vw] md:h-[0.768vw] md:w-[0.768vw] text-white mr-[1.54vw] md:mr-[0.512vw]"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        ></circle>
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
+      </svg>
+      Submitting...
+    </div>
+  ) : (
+    <MagneticButton
+      variant="primary"
+    >
+      Submit Request
+    </MagneticButton>
+  )}
+</div>
+
     </form>
   );
 }

@@ -27,7 +27,8 @@ import {
 const NAV_LINKS = [
   { href: "/about", label: "About Us", key: "about" },
   { href: "/pricing", label: "Pricing", key: "pricing" },
-  { href: "/blogs", label: "Blogs", key: "blogs" },
+  // { href: "/blogs", label: "Blogs", key: "blogs" },
+  { href: "/cost-calculater", label: "Cost Calculater", key: "cost-calculater" },
 ];
 
 // Products menu - all icons white
@@ -871,7 +872,7 @@ export default function Header() {
             </Link>
 
             {/* Blogs Link */}
-            <Link
+            {/* <Link
               href={NAV_LINKS[2].href}
               ref={(el) => {
                 navRefs.current[NAV_LINKS[2].key] = el;
@@ -879,6 +880,17 @@ export default function Header() {
               className="b3 text-[var(--text)] hover:text-[var(--brand-600)] transition-colors"
             >
               {NAV_LINKS[2].label}
+            </Link> */}
+
+                        {/* Cost Calculater Link */}
+            <Link
+              href={NAV_LINKS[3].href}
+              ref={(el) => {
+                navRefs.current[NAV_LINKS[3].key] = el;
+              }}
+              className="b3 text-[var(--text)] hover:text-[var(--brand-600)] transition-colors"
+            >
+              {NAV_LINKS[3].label}
             </Link>
 
             {/* Animated underline */}
@@ -895,14 +907,26 @@ export default function Header() {
             />
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex col-span-2 justify-end">
-            <Link href="/demo">
-              <MagneticButton variant="secondary">
-                Try demo
-              </MagneticButton>
-            </Link>
-          </div>
+          
+
+{/* Desktop CTA */}
+<div className="hidden md:flex col-span-2 justify-center items-center" style={{ gap: "1vw" }}>
+  {/* NEW LOGIN BUTTON */}
+  <a 
+    href="https://app.gridwage.com/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="b3 text-[var(--brand-600)] hover:text-[var(--brand-700)] hover:underline transition-all"
+  >
+    Login
+  </a>
+  
+  <Link href="/demo">
+    <MagneticButton variant="secondary">
+      Try demo
+    </MagneticButton>
+  </Link>
+</div>
 
           {/* Mobile Hamburger */}
           <div className="flex md:hidden col-span-10 justify-end">
@@ -1189,7 +1213,7 @@ export default function Header() {
               </div>
 
               {/* Blogs */}
-              <div
+              {/* <div
                 ref={(el) => {
                   if (el) mobileItemsRef.current[5] = el;
                 }}
@@ -1206,19 +1230,55 @@ export default function Header() {
                 >
                   {NAV_LINKS[2].label}
                 </Link>
+              </div> */}
+
+                            {/* Cost Calculater */}
+              <div
+                ref={(el) => {
+                  if (el) mobileItemsRef.current[6] = el;
+                }}
+                style={{ marginBottom: "0vw", width: "100%" }}
+              >
+                <Link
+                  href={NAV_LINKS[3].href}
+                  className={`h3 block py-3 px-4 rounded-xl transition-all ${
+                    pathname.startsWith("/cost-calculater")
+                      ? "text-[var(--brand-600)] bg-[var(--brand-50)]"
+                      : "text-[var(--text)] hover:bg-[var(--brand-0)]"
+                  }`}
+                  onClick={handleMobileMenuToggle}
+                >
+                  {NAV_LINKS[3].label}
+                </Link>
               </div>
             </div>
 
             {/* Bottom CTA */}
-            <div className="bg-white" style={{ padding: "5vw 8vw 20vw" }}>
-            <MagneticButton
-              variant="secondary"
-              className="w-full justify-center"
-              onClick={handleTryDemo}
-            >
-              Try demo
-            </MagneticButton>
-            </div>
+{/* Bottom CTA */}
+<div className="bg-white space-y-[2vw]" style={{ padding: "5vw 8vw 20vw" }}>
+  {/* NEW LOGIN BUTTON */}
+  <MagneticButton
+    variant="secondary"
+    className="w-full justify-center"
+    
+  >
+    <a 
+      href="https://app.gridwage.com/login" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      Login
+    </a>
+  </MagneticButton>
+  
+  <MagneticButton
+    variant="primary"
+    className="w-full justify-center"
+    onClick={handleTryDemo}
+  >
+    Try demo
+  </MagneticButton>
+</div>
           </div>
         </div>
       )}

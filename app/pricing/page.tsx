@@ -1,365 +1,198 @@
 "use client";
 
-import TextReveal from "@/app/Components/UI/TextReveal";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import MagneticButton from "@/app/Components/UI/MagneticButton";
+import { CheckCircle, Crown } from "lucide-react";
 
+type PricingPlan = {
+  name: string;
+  price: string;
+  desc: string;
+  summary: string;
+  features: string[];
+  mostPopular?: boolean;
+};
 
-export default function Price(){
+const pricingPlans: PricingPlan[] = [
+  {
+    name: "Employer of Record",
+    price: "$299",
+    desc: "per employee / month",
+    summary:
+      "Hire full-time employees globally without setting up local entities.",
+    features: [
+      "Compliant local employment contracts",
+      "Multi-currency payroll processing",
+      "Benefits & statutory compliance",
+      "Local HR & legal support",
+    ],
+  },
+  {
+    name: "Contractors",
+    price: "$39",
+    desc: "per contractor / month",
+    summary:
+      "Pay and manage international contractors with confidence and compliance.",
+    features: [
+      "Worker classification & risk mitigation",
+      "Contractor invoicing & payments",
+      "Benefits & insurance coverage",
+      "24/7 local HR support",
+    ],
+    mostPopular: true,
+  },
+  {
+    name: "Global Payroll",
+    price: "Speak to Sales",
+    desc: "pricing on request",
+    summary:
+      "Run payroll seamlessly across multiple countries and currencies.",
+    features: [
+      "Multi-country payroll processing",
+      "Tax calculation & filings",
+      "Payroll reports & insights",
+      "Dedicated payroll specialists",
+    ],
+  },
+  {
+    name: "Immigration & Visa",
+    price: "Speak to Sales",
+    desc: "pricing on request",
+    summary:
+      "Relocate and sponsor global talent with expert-led visa solutions.",
+    features: [
+      "Work visa & permit support",
+      "Country-specific expertise",
+      "End-to-end visa management",
+      "Ongoing compliance monitoring",
+    ],
+  },
+];
+
+export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section - Triggers on Page Load */}
-      <section className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-600 to-blue-600">
-        <TextReveal 
-          className="text-[12vw] md:text-[6vw] font-black text-white text-center"
-          triggerOnLoad={true}
-          delay={0.5}
-          duration={1.2}
-          stagger={0.15}
+    <div className="">
+
+      {/* ================= HERO ================= */}
+      <section className="text-center font-medium pt-[15vw] md:pt-[8vw] px-[5vw]">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="h3"
         >
-          Welcome to
-        </TextReveal>
-        
-        <TextReveal 
-          className="text-[12vw] md:text-[6vw] font-black text-white text-center"
-          triggerOnLoad={true}
-          delay={1.0}
-          duration={1.2}
-          stagger={0.15}
+          Transparent pricing for global teams
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="b3 text-[var(--gray-1)] max-w-[60vw] mx-auto"
         >
-          GridWage
-        </TextReveal>
+          Simple plans designed to scale with your business.
+          No hidden fees. Cancel anytime.
+        </motion.p>
+      </section>
 
-        <TextReveal 
-          className="text-[4vw] md:text-[1.5vw] text-white/90 text-center mt-8"
-          triggerOnLoad={true}
-          delay={1.5}
-          duration={0.8}
+{/* ================= PRICING SECTION ================= */}
+<section className="pb-[14vw] pt-[6vw]">
+
+  <div
+    className="
+      flex gap-[4vw] overflow-x-auto px-[5vw]
+      md:grid md:grid-cols-2 lg:grid-cols-4
+      md:gap-[2vw] md:overflow-visible
+      snap-x snap-mandatory
+    "
+  >
+    {pricingPlans.map((plan, index) => (
+      <motion.div
+        key={plan.name}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, delay: index * 0.06 }}
+        className={`
+          relative
+          min-w-[85vw] sm:min-w-[70vw]
+          md:min-w-0
+          snap-center
+          rounded-[5vw] md:rounded-[1.5vw]
+          px-[7vw] py-[7vw]
+          md:px-[1.8vw] md:py-[2.2vw]
+          border bg-white flex flex-col justify-between
+          ${
+            plan.mostPopular
+              ? "border-[var(--brand-600)]"
+              : "border-[var(--gray-2)/0.35]"
+          }
+        `}
+      >
+        {/* MOST POPULAR (MINIMAL BADGE) */}
+        {plan.mostPopular && (
+          <span className="absolute top-[3vw] md:top-[1vw] right-[4vw] md:right-[1vw] b4 text-[var(--brand-600)]">
+            Most popular
+          </span>
+        )}
+
+        {/* ---------- CONTENT ---------- */}
+        <div>
+          {/* Title */}
+          <h3 className="b1 font-medium text-center mb-[3vw] md:mb-[0.8vw]">
+            {plan.name}
+          </h3>
+
+          {/* Summary */}
+          <p className="b3 text-[var(--gray-1)] text-center mb-[6vw] md:mb-[1.2vw]">
+            {plan.summary}
+          </p>
+
+          {/* Price */}
+          <div className="text-center mb-[8vw] md:mb-[2vw]">
+            <div className="h5 font-semibold text-[var(--brand-600)]">
+              {plan.price}
+            </div>
+            <div className="b4 text-[var(--gray-1)]">
+              {plan.desc}
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-[var(--gray-2)/0.25] mb-[6vw] md:mb-[2vw]" />
+
+          {/* Features */}
+          <ul className="space-y-[3vw] md:space-y-[0.8vw] mb-[8vw] md:mb-[3vw]">
+            {plan.features.map((feature, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-[2vw] md:gap-[0.6vw] b3 text-[var(--gray-2)]"
+              >
+                <CheckCircle className="w-[4vw] h-[4vw] md:w-[0.9vw] md:h-[0.9vw] text-[var(--brand-600)] mt-[0.3vw]" />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* ---------- CTA ---------- */}
+        <MagneticButton
+          variant={plan.mostPopular ? "primary" : "secondary"}
+          className="w-full justify-center"
         >
-          Scroll down to see animations
-        </TextReveal>
-      </section>
+          <Link href="/demo">
+            {plan.price === "Speak to Sales" ? "Contact Sales" : "Get Started"}
+          </Link>
+        </MagneticButton>
+      </motion.div>
+    ))}
+  </div>
 
-      {/* Section 1 - Basic Scroll Trigger */}
-      <section className="min-h-screen flex items-center justify-center px-8">
-        <div className="max-w-4xl">
-          <TextReveal 
-            className="text-[8vw] md:text-[4vw] font-bold text-gray-900 mb-8"
-            delay={0}
-            duration={1.0}
-            stagger={0.1}
-          >
-            Basic Scroll Animation
-          </TextReveal>
-          
-          <TextReveal 
-            className="text-[4vw] md:text-[1.2vw] text-gray-600 leading-relaxed"
-            delay={0.3}
-            duration={0.8}
-            stagger={0.05}
-            lineHeight="1.8"
-          >
-            This text appears when you scroll to it. The animation is triggered when the element reaches 85% from the top of the viewport.
-          </TextReveal>
-        </div>
-      </section>
+</section>
 
-      {/* Section 2 - Fast Animation */}
-      <section className="min-h-screen flex items-center justify-center px-8 bg-white">
-        <div className="max-w-4xl">
-          <TextReveal 
-            className="text-[8vw] md:text-[4vw] font-bold text-blue-600 mb-8"
-            delay={0}
-            duration={0.6}
-            stagger={0.05}
-          >
-            Fast Reveal Effect
-          </TextReveal>
-          
-          <TextReveal 
-            className="text-[4vw] md:text-[1.2vw] text-gray-700"
-            delay={0.2}
-            duration={0.5}
-            stagger={0.03}
-          >
-            Quick and snappy animation with shorter duration and minimal stagger delay.
-          </TextReveal>
-        </div>
-      </section>
 
-      {/* Section 3 - Slow Dramatic */}
-      <section className="min-h-screen flex items-center justify-center px-8">
-        <div className="max-w-4xl">
-          <TextReveal 
-            className="text-[8vw] md:text-[4vw] font-bold text-purple-600 mb-8"
-            delay={0}
-            duration={2.0}
-            stagger={0.2}
-          >
-            Slow Dramatic Reveal
-          </TextReveal>
-          
-          <TextReveal 
-            className="text-[4vw] md:text-[1.2vw] text-gray-700"
-            delay={0.5}
-            duration={1.5}
-            stagger={0.15}
-          >
-            This animation takes its time, creating a more dramatic and elegant entrance effect.
-          </TextReveal>
-        </div>
-      </section>
 
-      {/* Section 4 - Multiple Headlines Stacked */}
-      <section className="min-h-screen flex items-center justify-center px-8 bg-black text-white">
-        <div className="max-w-6xl text-center">
-          <TextReveal 
-            className="text-[10vw] md:text-[5vw] font-black mb-4"
-            delay={0}
-            duration={1.0}
-            stagger={0.1}
-          >
-            Hire Globally
-          </TextReveal>
-          
-          <TextReveal 
-            className="text-[10vw] md:text-[5vw] font-black mb-4"
-            delay={0.3}
-            duration={1.0}
-            stagger={0.1}
-          >
-            Pay Locally
-          </TextReveal>
-          
-          <TextReveal 
-            className="text-[10vw] md:text-[5vw] font-black mb-8"
-            delay={0.6}
-            duration={1.0}
-            stagger={0.1}
-          >
-            Stay Compliant
-          </TextReveal>
 
-          <TextReveal 
-            className="text-[4vw] md:text-[1.5vw] text-white/80"
-            delay={0.9}
-            duration={0.8}
-          >
-            The future of global employment
-          </TextReveal>
-        </div>
-      </section>
-
-      {/* Section 5 - Left Aligned Content */}
-      <section className="min-h-screen flex items-center px-8 md:px-16">
-        <div className="max-w-5xl">
-          <TextReveal 
-            className="text-[3vw] md:text-[1vw] font-semibold text-green-600 uppercase tracking-wider mb-4"
-            delay={0}
-            duration={0.6}
-          >
-            Our Services
-          </TextReveal>
-
-          <TextReveal 
-            className="text-[8vw] md:text-[4vw] font-bold text-gray-900 mb-8"
-            delay={0.2}
-            duration={1.2}
-            stagger={0.1}
-            lineHeight="1.2"
-          >
-            Employer of Record Solutions
-          </TextReveal>
-          
-          <TextReveal 
-            className="text-[4vw] md:text-[1.3vw] text-gray-600 leading-relaxed max-w-3xl"
-            delay={0.5}
-            duration={1.0}
-            stagger={0.05}
-            lineHeight="1.8"
-          >
-            GridWage's EOR infrastructure lets you onboard full-time employees anywhere, while we handle local labour laws, contracts, payroll, and taxes with absolute precision. Expand globally without the complexity.
-          </TextReveal>
-        </div>
-      </section>
-
-      {/* Section 6 - Gradient Text */}
-      <section className="min-h-screen flex items-center justify-center px-8 bg-gradient-to-br from-pink-100 to-purple-100">
-        <div className="max-w-4xl text-center">
-          <TextReveal 
-            className="text-[10vw] md:text-[5vw] font-extrabold bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent"
-            delay={0}
-            duration={1.5}
-            stagger={0.12}
-          >
-            Beautiful Gradient
-          </TextReveal>
-          
-          <TextReveal 
-            className="text-[10vw] md:text-[5vw] font-extrabold bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent"
-            delay={0.4}
-            duration={1.5}
-            stagger={0.12}
-          >
-            Text Animations
-          </TextReveal>
-        </div>
-      </section>
-
-      {/* Section 7 - Two Column Layout */}
-      <section className="min-h-screen flex items-center px-8 md:px-16 bg-white">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
-          <div>
-            <TextReveal 
-              className="text-[8vw] md:text-[3.5vw] font-bold text-gray-900 mb-6"
-              delay={0}
-              duration={1.0}
-              stagger={0.1}
-            >
-              Why Choose GridWage?
-            </TextReveal>
-            
-            <TextReveal 
-              className="text-[4vw] md:text-[1.1vw] text-gray-600 leading-relaxed"
-              delay={0.3}
-              duration={0.8}
-              stagger={0.05}
-              lineHeight="1.7"
-            >
-              We make global hiring simple, compliant, and efficient. Our platform handles everything from contracts to payments.
-            </TextReveal>
-          </div>
-
-          <div>
-            <TextReveal 
-              className="text-[8vw] md:text-[3.5vw] font-bold text-gray-900 mb-6"
-              delay={0.2}
-              duration={1.0}
-              stagger={0.1}
-            >
-              Global Coverage
-            </TextReveal>
-            
-            <TextReveal 
-              className="text-[4vw] md:text-[1.1vw] text-gray-600 leading-relaxed"
-              delay={0.5}
-              duration={0.8}
-              stagger={0.05}
-              lineHeight="1.7"
-            >
-              Access talent in over 150 countries with full legal compliance and local expertise in every market.
-            </TextReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 8 - Quote Style */}
-      <section className="min-h-screen flex items-center justify-center px-8 bg-gray-900">
-        <div className="max-w-5xl text-center">
-          <TextReveal 
-            className="text-[6vw] md:text-[2.5vw] font-light text-white/90 italic leading-relaxed"
-            delay={0}
-            duration={1.5}
-            stagger={0.08}
-            lineHeight="1.6"
-          >
-            "The best way to predict the future is to create it together, across borders and boundaries."
-          </TextReveal>
-          
-          <TextReveal 
-            className="text-[4vw] md:text-[1.2vw] text-white/60 mt-8"
-            delay={0.8}
-            duration={0.6}
-          >
-            — GridWage Team
-          </TextReveal>
-        </div>
-      </section>
-
-      {/* Section 9 - Statistics */}
-      <section className="min-h-screen flex items-center justify-center px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl">
-          <div className="text-center">
-            <TextReveal 
-              className="text-[15vw] md:text-[5vw] font-black text-blue-600"
-              delay={0}
-              duration={1.0}
-            >
-              150+
-            </TextReveal>
-            <TextReveal 
-              className="text-[4vw] md:text-[1.2vw] text-gray-700 mt-4"
-              delay={0.3}
-              duration={0.8}
-            >
-              Countries Covered
-            </TextReveal>
-          </div>
-
-          <div className="text-center">
-            <TextReveal 
-              className="text-[15vw] md:text-[5vw] font-black text-green-600"
-              delay={0.2}
-              duration={1.0}
-            >
-              72%
-            </TextReveal>
-            <TextReveal 
-              className="text-[4vw] md:text-[1.2vw] text-gray-700 mt-4"
-              delay={0.5}
-              duration={0.8}
-            >
-              Faster Expansion
-            </TextReveal>
-          </div>
-
-          <div className="text-center">
-            <TextReveal 
-              className="text-[15vw] md:text-[5vw] font-black text-purple-600"
-              delay={0.4}
-              duration={1.0}
-            >
-              24/7
-            </TextReveal>
-            <TextReveal 
-              className="text-[4vw] md:text-[1.2vw] text-gray-700 mt-4"
-              delay={0.7}
-              duration={0.8}
-            >
-              Support Available
-            </TextReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 10 - Final CTA */}
-      <section className="min-h-screen flex items-center justify-center px-8 bg-gradient-to-br from-blue-600 to-purple-600">
-        <div className="max-w-4xl text-center">
-          <TextReveal 
-            className="text-[10vw] md:text-[5vw] font-black text-white mb-8"
-            delay={0}
-            duration={1.2}
-            stagger={0.1}
-          >
-            Ready to Go Global?
-          </TextReveal>
-          
-          <TextReveal 
-            className="text-[5vw] md:text-[1.5vw] text-white/90 mb-12"
-            delay={0.4}
-            duration={0.8}
-          >
-            Start hiring internationally today
-          </TextReveal>
-
-          <div className="opacity-0 animate-fadeIn" style={{ animationDelay: '1.5s', animationFillMode: 'forwards' }}>
-            <button className="bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Extra scroll space */}
-      <div className="h-20"></div>
     </div>
   );
 }

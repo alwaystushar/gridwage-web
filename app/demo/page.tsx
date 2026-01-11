@@ -32,9 +32,9 @@ export const metadata = {
 export default function DemoPage() {
   return (
 
-      <div className="grid-container min-h-screen items-center py-[16vw] md:py-[6.4vw]">
+      <div className="grid-container items-center max-sm:py-[16vw] md:pt-[0vw] ">
         {/* Left Side - Form */}
-        <div className="col-span-12 md:col-span-6 md:pr-[2.4vw]">
+        <div className="col-span-12 md:col-span-6 md:pl-[8.4vw]">
           <div className="mb-[4.8vw] md:mb-[2.4vw]">
             <h1 className="text-[6.4vw] md:text-[2.88vw] font-semibold mb-[1.6vw] md:mb-[0.8vw] leading-tight">
               Book Your Demo
@@ -48,17 +48,17 @@ export default function DemoPage() {
 
         {/* Right Side - Image */}
         <div className="col-span-12 md:col-span-6 hidden md:block ">
-          <div className="sticky top-[8vw]">
-            <div className="relative w-full aspect-[4/4] rounded-[1.2vw] overflow-hidden bg-gradient-to-br from-[var(--brand-100)] to-[var(--brand-50)]">
+          <div className="sticky relative top-[8vw]">
+            <div className="relative absolute left-[0vw] h-[100vh] w-[48vw] aspect-[4/4] overflow-hidden bg-gradient-to-br from-[var(--brand-100)] to-[var(--brand-50)]">
               <img
-                src="/cta/form.png"
+                src="/cta/form.jpg"
                 alt="Global workforce management"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               
               {/* Floating Stats */}
-              <div className="absolute bottom-[1.6vw] left-[1.6vw] right-[1.6vw]">
+              <div className="absolute bottom-[4vw] left-[1.6vw] right-[1.6vw]">
                 <div className="grid grid-cols-3 gap-[0.8vw]">
                   <div className="bg-white/90 backdrop-blur-sm rounded-[0.64vw] p-[0.96vw]">
                     <div className="text-[1.6vw] font-bold text-[var(--brand-600)]">150+</div>
